@@ -1,0 +1,42 @@
+body {
+    flex-direction: column;
+    background-color: #9580FF;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 65px 15px 65px; /* top right bottom left */
+    background-color: #AAFF80;
+    border-radius: 20px;
+}
+
+.instructions-container .top {
+    padding-top: 25px;
+    padding-bottom: 75px;
+}
+
+.instructions-container .mid {
+    padding-bottom: 100px;
+}
+
+.instructions-container .bottom {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.instructions-container button {
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    padding: 20px 90px;
+    background-color: #FFEA80;
+}
+
+
