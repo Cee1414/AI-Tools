@@ -20,6 +20,8 @@ div {
 
 .left-top {
     padding: 160px;
+    background-color: #FF80FF;
+    border-radius: 5px;
 }
 
 .left-mid {
@@ -31,6 +33,7 @@ div {
 
 .left-bottom {
     padding: 160px;
+    background-color: #D9D9D9;
 }
 
 .left {
@@ -40,11 +43,18 @@ div {
     display: flex;
     flex-wrap: wrap;
     max-width: 800px;
-    padding: 50px 0px 30px 0px;
+    padding: 30px 0px 30px 0px;
     justify-content: center;
 }
-
+ 
 .video {
     
     padding: 25px 150px 15px 150px; /* top right bottom left */
+    background-color: #D9D9D9;
+    margin: 7px;
+    border-radius: 5px;
+}
+
+.hello {
+  padding: 100px;  
 }
