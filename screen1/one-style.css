@@ -17,6 +17,7 @@ body {
 div {
     border: 1px solid black;
 }
+
 .left-top {
     padding: 160px;
 }
@@ -32,16 +33,18 @@ div {
     padding: 160px;
 }
 
+.left {
+    padding: 50px;
+}
 .right {
     display: flex;
     flex-wrap: wrap;
     max-width: 800px;
-    padding: 50px;
+    padding: 50px 0px 30px 0px;
+    justify-content: center;
 }
 
 .video {
-    flex-grow: 0;
-    min-height: 0;
-    max-height: 160px;
-    padding: 25px 125px 15px 125px; /* top right bottom left */
+    
+    padding: 25px 150px 15px 150px; /* top right bottom left */
 }
