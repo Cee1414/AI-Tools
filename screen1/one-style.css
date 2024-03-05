@@ -157,3 +157,24 @@ body {
     padding: 8px 22px 8px 8px; /* top right bottom left */
     background-color: #9580FF;
 }
+
+.container-one {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.container-two {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.container-three {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.container-four {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
