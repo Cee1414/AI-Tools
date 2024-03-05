@@ -55,7 +55,7 @@ body {
  
 .video {
     
-    padding: 25px; /* top right bottom left */
+    padding: 25px 25px 25px 25px; /* top right bottom left */
     background-color: #D9D9D9;
     margin: 7px;
     border-radius: 5px;
@@ -116,6 +116,7 @@ body {
 
 .video p {
     align-self: center;
+    text-align: center;
 }
 
 
@@ -136,24 +137,24 @@ body {
     background-color: #9580FF;
 }
 
-.funny-bar {
+.video .funny-bar {
     padding: 8px 8px 8px 8px; /* top right bottom left */
     background-color: #FF8181;
 }
-.smart-bar {
+.video .smart-bar {
     padding: 8px 99px 8px 8px; /* top right bottom left */
     background-color: #FFEA80;
 
 }
-.happy-bar {
+.video .happy-bar {
     padding: 8px 56px 8px 8px; /* top right bottom left */
     background-color: #AAFF80
 }
-.sad-bar {
+.video .sad-bar {
     padding: 8px 88px 8px 8px; /* top right bottom left */
     background-color: #80D4FF;
 }
-.angry-bar {
+.video .angry-bar {
     padding: 8px 22px 8px 8px; /* top right bottom left */
     background-color: #9580FF;
 }
