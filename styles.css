@@ -1,0 +1,52 @@
+body {
+    flex-direction: column;
+    background-color: #9580FF;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 65px 15px 65px; /* top right bottom left */
+    background-color: #AAFF80;
+    border-radius: 20px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Jura', sans-serif;
+    
+}
+
+.instructions-container .top {
+    padding-top: 25px;
+    padding-bottom: 60px;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.instructions-container .mid {
+    padding-bottom: 100px;
+    font-size: 23px;
+    
+}
+
+.instructions-container .bottom {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.instructions-container button {
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    padding: 30px 90px;
+    background-color: #FFEA80;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+
