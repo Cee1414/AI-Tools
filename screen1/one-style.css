@@ -70,10 +70,31 @@ div {
     padding: 325px 25px 25px 25px; /* top right bottom left */
 }
 
-.funny {
+.left-bottom .funny-graph {
     padding: 325px 25px 25px 25px; /* top right bottom left */
 }
 
-.smart {
+.left-bottom .smart-graph {
     padding: 325px 25px 25px 25px; /* top right bottom left */
+}
+
+.funny {
+    display: flex;
+    gap: 8px;
+}
+.smart {
+    display: flex;
+    gap: 8px;
+}
+.happy {
+    display: flex;
+    gap: 8px;
+}
+.sad {
+    display: flex;
+    gap: 8px;
+}
+.angry {
+    display: flex;
+    gap: 8px;
 }
