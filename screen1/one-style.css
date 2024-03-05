@@ -44,6 +44,8 @@ div {
     padding: 50px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 84px;
 }
 .right {
     display: flex;
@@ -55,7 +57,7 @@ div {
  
 .video {
     
-    padding: 25px 150px 15px 150px; /* top right bottom left */
+    padding: 25px; /* top right bottom left */
     background-color: #D9D9D9;
     margin: 7px;
     border-radius: 5px;
@@ -78,34 +80,46 @@ div {
     padding: 325px 25px 25px 25px; /* top right bottom left */
 }
 .thumbnail1 {
-    padding: 40px 25px 40px 25px; /* top right bottom left */
+    padding: 100px 160px 100px 160px; /* top right bottom left */
+    background-color: #FFFFFF;
 }
 .thumbnail2 {
-    padding: 40px 25px 40px 25px; /* top right bottom left */
+    padding: 100px 160px 100px 160px; /* top right bottom left */
+    background-color: #FFFFFF;
 }
 .thumbnail3 {
-    padding: 40px 25px 40px 25px; /* top right bottom left */
+    padding: 100px 160px 100px 160px; /* top right bottom left */
+    background-color: #FFFFFF;
 }
 .thumbnail4 {
-    padding: 40px 25px 40px 25px; /* top right bottom left */
+    padding: 100px 160px 100px 160px; /* top right bottom left */
+    background-color: #FFFFFF;
 }
 .funny {
     display: flex;
-    gap: 8px;
+    gap: 16px;
 }
 .smart {
     display: flex;
-    gap: 8px;
+    gap: 16px;
 }
 .happy {
     display: flex;
-    gap: 8px;
+    gap: 16px;
 }
 .sad {
     display: flex;
-    gap: 8px;
+    gap: 16px;
 }
 .angry {
     display: flex;
-    gap: 8px;
+    gap: 16px;
+}
+
+.video p {
+    align-self: center;
+}
+
+.funny-bar {
+    background-color: red;
 }
