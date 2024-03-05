@@ -14,9 +14,7 @@ body {
     
 }
 
-div {
-    border: 1px solid black;
-}
+
 
 .left-top {
     padding: 160px;
@@ -120,6 +118,42 @@ div {
     align-self: center;
 }
 
+
+.funny-graph {
+    background-color: #FF8181;
+}
+.smart-graph {
+    background-color: #FFEA80;
+}
+.happy-graph {
+    background-color: #AAFF80
+    ;
+}
+.sad-graph {
+    background-color: #80D4FF;
+}
+.angry-graph {
+    background-color: #9580FF;
+}
+
 .funny-bar {
-    background-color: red;
+    padding: 8px 8px 8px 8px; /* top right bottom left */
+    background-color: #FF8181;
+}
+.smart-bar {
+    padding: 8px 99px 8px 8px; /* top right bottom left */
+    background-color: #FFEA80;
+
+}
+.happy-bar {
+    padding: 8px 56px 8px 8px; /* top right bottom left */
+    background-color: #AAFF80
+}
+.sad-bar {
+    padding: 8px 88px 8px 8px; /* top right bottom left */
+    background-color: #80D4FF;
+}
+.angry-bar {
+    padding: 8px 22px 8px 8px; /* top right bottom left */
+    background-color: #9580FF;
 }
