@@ -223,14 +223,20 @@ body {
 
   .watchtime-line {
     padding: 40px 40px 40px 40px;
+    display: flex;
+    gap: 16px;
   }
 
   .like-line {
     padding: 40px 40px 40px 40px;
+    display: flex;
+    gap: 16px;
   }
 
   .comment-line {
     padding: 40px 40px 40px 40px;
+    display: flex;
+    gap: 16px;
   }
 
   .game-over-box .bottom {
@@ -244,14 +250,22 @@ body {
     
   }
 
-  /* .affected-overlay {
-    position: absolute;
-  }
+ .watchtime-bar {
+    padding: 8px 56px 8px 8px; /* top right bottom left */
+    background-color: #FF80FF;
+    border-radius: 5px;
+ }
 
-  .unaffected-overlay {
-    position: absolute;
-  }
+ .comment-bar {
+    padding: 8px 32px 8px 32px; /* top right bottom left */
+    background-color: #DFFF80;
+    border-radius: 5px;
+    
+ }
 
-  .body {
-    position: absolute;
-  } */
+ .like-bar {
+    padding: 8px 32px 8px 32px; /* top right bottom left */
+    background-color: #809FFF;
+    border-radius: 5px;
+ }
+
