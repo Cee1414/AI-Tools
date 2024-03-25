@@ -186,3 +186,63 @@ body {
     background-color: rgba(0, 0, 0, 0.5); 
     z-index: 999; 
   }
+
+  .game-over-box {
+    display: flex;
+    position: absolute;
+    padding: 20px 0px 20px 0px; /* top right bottom left */;
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+
+  }
+
+  .your-score {
+    padding: 80px;
+    background-color: wheat;
+  }
+
+  
+
+  .game-over-main-content {
+    gap: 26px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 300px 20px 300px; /* top right bottom left */;
+    
+  }
+
+  .watchtime-line {
+    padding: 40px 40px 40px 40px;
+  }
+
+  .like-line {
+    padding: 40px 40px 40px 40px;
+  }
+
+  .comment-line {
+    padding: 40px 40px 40px 40px;
+  }
+
+  .game-over-box .bottom {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .next-button {
+    padding: 90px;
+    
+  }
+
+  /* .affected-overlay {
+    position: absolute;
+  }
+
+  .unaffected-overlay {
+    position: absolute;
+  }
+
+  .body {
+    position: absolute;
+  } */
