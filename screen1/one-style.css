@@ -10,6 +10,7 @@ body {
     background-color: #FFFFFF;
     align-items: center;
     justify-content: center;
+    font-family: 'Jura', sans-serif;
 }
 
 .main-container {
@@ -190,7 +191,7 @@ body {
   .game-over-box {
     display: flex;
     position: absolute;
-    padding: 20px 0px 20px 0px; /* top right bottom left */;
+    padding: 20px 30px 20px 30px; /* top right bottom left */;
     background-color: #d9d9d9;
     display: flex;
     flex-direction: column;
@@ -201,6 +202,13 @@ body {
   .your-score {
     padding: 80px;
     background-color: wheat;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .your-score p  {
+    font-weight: bold;
   }
 
   
@@ -232,6 +240,7 @@ body {
 
   .next-button {
     padding: 90px;
+    background-color: #FFEA80;
     
   }
 
