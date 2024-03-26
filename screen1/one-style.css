@@ -191,7 +191,7 @@ body {
   .game-over-box {
     display: flex;
     position: absolute;
-    padding: 20px 30px 20px 30px; /* top right bottom left */;
+    padding: 35px 30px 20px 30px; /* top right bottom left */;
     background-color: #d9d9d9;
     display: flex;
     flex-direction: column;
@@ -201,11 +201,18 @@ body {
   }
 
   .your-score {
-    padding: 80px;
-    background-color: wheat;
+    padding: 40px 120px 0px 120px; /* top right bottom left */;
     display: flex;
     align-items: center;
     gap: 4px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 240px;
+    margin-right: 240px;
+    border-bottom: 1px solid black;
+    font-size: 40px;
+    
   }
 
   .your-score p  {
@@ -218,7 +225,7 @@ body {
     gap: 26px;
     display: flex;
     flex-direction: column;
-    padding: 20px 300px 20px 300px; /* top right bottom left */;
+    padding: 0px 240px 0px 240px; /* top right bottom left */;
     
   }
 
@@ -226,27 +233,30 @@ body {
     padding: 40px 40px 40px 40px;
     display: flex;
     gap: 16px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
+    font-size: 20px;
   }
 
   .like-line {
     padding: 40px 40px 40px 40px;
     display: flex;
     gap: 16px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
+    font-size: 20px;
   }
 
   .comment-line {
     padding: 40px 40px 40px 40px;
     display: flex;
     gap: 16px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
+    font-size: 20px;
   }
 
   .game-over-box .bottom {
@@ -255,13 +265,15 @@ body {
   }
 
   .next-button {
-    padding: 90px;
+    padding: 40px 100px 40px 100px;
     background-color: #FFEA80;
-    
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 35px;
   }
 
  .watchtime-bar {
-    padding: 8px 50px 8px 50px; /* top right bottom left */
+    padding: 8px 100px 8px 100px; /* top right bottom left */
     background-color: #FF80FF;
     border-radius: 5px;
     display: flex;
@@ -271,7 +283,7 @@ body {
  }
 
  .comment-bar {
-    padding: 8px 32px 8px 32px; /* top right bottom left */
+    padding: 8px 50px 8px 50px; /* top right bottom left */
     background-color: #DFFF80;
     border-radius: 5px;
     justify-content: center;
@@ -280,7 +292,7 @@ body {
  }
 
  .like-bar {
-    padding: 8px 32px 8px 32px; /* top right bottom left */
+    padding: 8px 50px 8px 50px; /* top right bottom left */
     background-color: #809FFF;
     border-radius: 5px;
     justify-content: center;
