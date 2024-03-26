@@ -21,7 +21,7 @@
 
   document.body.addEventListener("click", clickHandlerDarkOverlay); 
 
-  document.body.addEventListener("click", clickHandlerGameOverScreen); //click handlers
+  document.body.addEventListener("click", clickHandlerGameOverScreen); //click event listeners 
 
 
 //GameOverScreen Functions
