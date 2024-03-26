@@ -270,6 +270,12 @@ body {
     border-radius: 5px;
     font-weight: bold;
     font-size: 35px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .next-button:hover {
+    opacity: 0.5;
   }
 
  .watchtime-bar {
