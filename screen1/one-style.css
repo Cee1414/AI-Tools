@@ -196,6 +196,7 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 1000;
+    border-radius: 5px;
 
   }
 
@@ -225,18 +226,27 @@ body {
     padding: 40px 40px 40px 40px;
     display: flex;
     gap: 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .like-line {
     padding: 40px 40px 40px 40px;
     display: flex;
     gap: 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .comment-line {
     padding: 40px 40px 40px 40px;
     display: flex;
     gap: 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .game-over-box .bottom {
@@ -251,21 +261,30 @@ body {
   }
 
  .watchtime-bar {
-    padding: 8px 56px 8px 8px; /* top right bottom left */
+    padding: 8px 50px 8px 50px; /* top right bottom left */
     background-color: #FF80FF;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
  }
 
  .comment-bar {
     padding: 8px 32px 8px 32px; /* top right bottom left */
     background-color: #DFFF80;
     border-radius: 5px;
-    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
  }
 
  .like-bar {
     padding: 8px 32px 8px 32px; /* top right bottom left */
     background-color: #809FFF;
     border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
  }
 
