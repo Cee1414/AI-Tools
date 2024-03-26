@@ -106,8 +106,8 @@
   }
 
 
-  //video object declarations
-
+  
+//user object declarations MAX:100
 
 let user = {
 
@@ -117,6 +117,8 @@ let user = {
     sad: 16,
     angry: 90,
 }
+
+//video object declarations MAX: 100
 
   let video = {
 
