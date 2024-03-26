@@ -108,13 +108,23 @@
 
   //video object declarations
 
-  let video = {
-    videoName: "DogPark",
+
+let user = {
+
     funny: 100,
     smart: 50,
     happy: 34,
     sad: 16,
     angry: 90,
+}
 
+  let video = {
+
+    videoName: "DogPark",
+    funny: 87,
+    smart: 64,
+    happy: 77,
+    sad: 91,
+    angry: 33,
 
   };
