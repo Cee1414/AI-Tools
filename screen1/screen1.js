@@ -104,3 +104,17 @@
   document.body.appendChild(gameOverBoxDiv);
 
   }
+
+
+  //video object declarations
+
+  let video = {
+    videoName: "DogPark",
+    funny: 100,
+    smart: 50,
+    happy: 34,
+    sad: 16,
+    angry: 90,
+
+
+  };
