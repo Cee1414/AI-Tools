@@ -1,0 +1,225 @@
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+
+body {
+    display: flex;
+    
+    height: 100vh;
+    background-color: #FFFFFF;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jura', sans-serif;
+}
+
+.main-container {
+    display: flex;
+    border: 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.left-user {
+    padding: 380px;
+    background-color: #FF80FF;
+    border-radius: 5px;
+    
+}
+
+.left {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 84px;
+}
+.right {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    padding: 30px 0px 30px 0px;
+    justify-content: center;
+}
+
+.right .above-video-text {
+    font-size: 40px;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+ 
+.video {
+    
+    padding: 20px; /* top right bottom left */
+    background-color: #D9D9D9;
+    margin: 7px;
+    border-radius: 5px;
+    border: 4px solid transparent; /* Initial border */
+    transition: border-color 0.3s ease; /* Transition for smooth effect */
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+.video:hover {
+    border-color: #333;
+}
+
+
+
+.thumbnail1 {
+    padding: 100px 160px 100px 160px; /* top right bottom left */
+    background-color: #FFFFFF;
+}
+.thumbnail2 {
+    padding: 100px 160px 100px 160px; /* top right bottom left */
+    background-color: #FFFFFF;
+}
+.thumbnail3 {
+    padding: 100px 160px 100px 160px; /* top right bottom left */
+    background-color: #FFFFFF;
+}
+.thumbnail4 {
+    padding: 100px 160px 100px 160px; /* top right bottom left */
+    background-color: #FFFFFF;
+}
+
+.video p {
+    align-self: center;
+    text-align: center;
+}
+
+.dark-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; 
+  }
+
+  .game-over-box {
+    display: flex;
+    position: absolute;
+    padding: 35px 30px 20px 30px; /* top right bottom left */;
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .your-score {
+    padding: 40px 120px 0px 120px; /* top right bottom left */;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 240px;
+    margin-right: 240px;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;-size: 40px;
+    font-size: 30px;
+  }
+
+  .your-score p  {
+    font-weight: bold;
+  }
+
+  
+
+  .game-over-main-content {
+    gap: 26px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 240px 0px 240px; /* top right bottom left */;
+    
+  }
+
+  .watchtime-line {
+    padding: 40px 40px 40px 40px;
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .like-line {
+    padding: 40px 40px 40px 40px;
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .comment-line {
+    padding: 40px 40px 40px 40px;
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .game-over-box .bottom {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .next-button {
+    padding: 40px 100px 40px 100px;
+    background-color: #FFEA80;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 35px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .next-button:hover {
+    opacity: 0.5;
+  }
+
+ .watchtime-bar {
+    padding: 8px 100px 8px 100px; /* top right bottom left */
+    background-color: #FF80FF;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+ }
+
+ .comment-bar {
+    padding: 8px 50px 8px 50px; /* top right bottom left */
+    background-color: #DFFF80;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+ }
+
+ .like-bar {
+    padding: 8px 50px 8px 50px; /* top right bottom left */
+    background-color: #809FFF;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+ }
+
