@@ -1,5 +1,5 @@
 function translateScrollbarContainerX(translateX) {
-    var scrollbarContainer = document.querySelector('.scrollbar-container');
+    let scrollbarContainer = document.querySelector('.scrollbar-container');
     if (scrollbarContainer) {
       scrollbarContainer.style.transform = `translateX(${translateX}px)`;
     } else {
@@ -8,16 +8,27 @@ function translateScrollbarContainerX(translateX) {
     //in this function 1.8px is 1% ex(90px is 50%)
   }
 
-  function updateParagraphsContent(content) {
-    var paragraphs = document.querySelectorAll('.scrollbar-container p');
-    for (var i = 0; i < 1; i++) {
-  paragraphs[i].textContent = content;
+  function updateParagraphsPercentage(percentage) {
+    let paragraphs = document.querySelectorAll('.scrollbar-container p');
+    for (let i = 0; i < 1; i++) {
+  paragraphs[i].textContent = percentage + '%';
   
-}
+  }
+  //TODO Change function name
+  //the for loop only iterates once so function name is incorrect
+  }
+
+  function convertPercentageToPixel (percentage) {
+    return percentage * 1.8;
+  }
+
+  function updateScrollbar(percentage) {
+    let pixels = convertPercentageToPixel(percentage);
+    translateScrollbarContainerX(pixels)
+    updateParagraphsPercentage(percentage);
 
   }
 
   // TODO: make function to automatically calculate the percentage based on pixels moved
 
-  translateScrollbarContainerX(90);
-  updateParagraphsContent('50%');
+  updateScrollbar(50);
