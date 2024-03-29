@@ -14,7 +14,7 @@ function translateScrollbarContainerX(translateX) {
   paragraphs[i].textContent = percentage + '%';
   
   }
-  //TODO Change function name
+  //TODO Change function name and make it work for all scrollbars, not just the first one
   //the for loop only iterates once so function name is incorrect
   }
 
@@ -28,7 +28,5 @@ function translateScrollbarContainerX(translateX) {
     updateParagraphsPercentage(percentage);
 
   }
-
-  // TODO: make function to automatically calculate the percentage based on pixels moved
 
   updateScrollbar(50);

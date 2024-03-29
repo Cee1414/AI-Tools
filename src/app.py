@@ -15,6 +15,10 @@ def screen1():
 def user_results():
     return render_template('user-results.html')
 
+@app.route('/final-results')
+def final_results():
+    return render_template('final-results.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

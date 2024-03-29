@@ -23,7 +23,7 @@ body {
 }
 
 .left-user {
-    padding: 380px;
+    padding: 360px;
     background-color: #FF80FF;
     border-radius: 5px;
     
@@ -38,13 +38,13 @@ body {
 }
 
 .left p {
-    font-size: 40px;
+    font-size: 50px;
     display: flex;
     align-self: center;
     justify-self: center;
 }
 
-.right {
+.results-container-table {
     display: flex;
     flex-wrap: wrap;
     max-width: 800px;
