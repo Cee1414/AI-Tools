@@ -37,8 +37,6 @@ body {
     
 }
 
-
-
 .left p {
     font-size: 40px;
     display: flex;
@@ -64,7 +62,7 @@ body {
  
 .results-container {
     
-    padding: 70px 380px 70px 380px; /* top right bottom left */
+    padding: 10px 340px 10px 340px; /* top right bottom left */
     background-color: #D9D9D9;
     margin: 7px;
     border-radius: 5px;
@@ -73,5 +71,22 @@ body {
     font-size: 20px;
 }
 
+.scrollbar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.scrollbar-container p {
+    margin-bottom: 5px;
+}
+
+.triangle {
+    width: 0;
+  border-left: 11.547px solid transparent;
+  border-right: 11.547px solid transparent;
+  border-bottom: 20px solid black; /* 86.66% */
+  transform: rotate(180deg); 
+}
 
