@@ -82,7 +82,7 @@ body {
   width: 0;
   border-left: 11.547px solid transparent;
   border-right: 11.547px solid transparent;
-  border-bottom: 20px solid black; 
+  border-bottom: 20px; 
   transform: rotate(180deg); 
 }
 
@@ -134,4 +134,24 @@ body {
   left: 51.35%; /* Adjust as needed to position the vertical line */
   transform: translateX(-50%); /* Move the line back to the left by half its width */
   border-left: 4px solid black; /* Adjust thickness and color as needed */
+  }
+
+  .row1-triangle {
+    border-bottom: 20px solid #FF80FF;
+  }
+
+  .row2-triangle {
+    border-bottom: 20px solid #FF8181;
+  }
+
+  .row3-triangle {
+    border-bottom: 20px solid #80D4FF;
+  }
+
+  .row4-triangle {
+    border-bottom: 20px solid #FFEA80;
+  }
+
+  .row5-triangle {
+    border-bottom: 20px solid #9580FF;
   }

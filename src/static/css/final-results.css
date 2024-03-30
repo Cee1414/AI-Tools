@@ -88,7 +88,6 @@ body {
   width: 0;
   border-left: 11.547px solid transparent;
   border-right: 11.547px solid transparent;
-  border-bottom: 20px solid black; 
   transform: rotate(180deg); 
 }
 
@@ -177,7 +176,7 @@ body {
     width: 0;
     border-left:  46px solid transparent;
     border-right: 46px solid transparent;
-    border-bottom: 80px solid black; 
+    border-bottom: 80px solid #80D4FF; 
     transform: rotate(-90deg); 
 }
 
@@ -185,7 +184,7 @@ body {
     width: 0;
     border-left:  46px solid transparent;
     border-right: 46px solid transparent;
-    border-bottom: 80px solid black; 
+    border-bottom: 80px solid #FF80FF; 
     transform: rotate(90deg); 
 }
 
@@ -196,3 +195,23 @@ body {
     border-radius: 5px;
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.row1-triangle {
+    border-bottom: 20px solid #FF80FF;
+  }
+
+  .row2-triangle {
+    border-bottom: 20px solid #FF8181;
+  }
+
+  .row3-triangle {
+    border-bottom: 20px solid #80D4FF;
+  }
+
+  .row4-triangle {
+    border-bottom: 20px solid #FFEA80;
+  }
+
+  .row5-triangle {
+    border-bottom: 20px solid #9580FF;
+  }
