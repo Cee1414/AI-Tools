@@ -183,7 +183,7 @@ body {
     border-left:  46px solid transparent;
     border-right: 46px solid transparent;
     border-bottom: 80px solid #80D4FF; 
-    transform: rotate(-90deg); 
+    transform: rotate(-90deg);
 }
 
 .right-triangle {
