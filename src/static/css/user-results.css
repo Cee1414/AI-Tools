@@ -22,7 +22,7 @@ body {
     
 }
 
-.left-user {
+.user-picture {
     padding: 360px;
     background-color: #FF80FF;
     border-radius: 5px;
@@ -50,14 +50,6 @@ body {
     max-width: 800px;
     padding: 30px 0px 30px 0px;
     justify-content: center;
-}
-
-.right-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 10px;
-
 }
  
 .results-container {
