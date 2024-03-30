@@ -129,6 +129,7 @@ body {
 
 .results-container .right-text {
     margin-left: 6px;
+    color: #D9D9D9;
 }
 
 .horizontal-line::before {

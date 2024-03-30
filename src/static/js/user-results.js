@@ -1,12 +1,13 @@
 function translateScrollbarContainerX(translateX) {
-    let scrollbarContainer = document.querySelector('.scrollbar-container');
-    if (scrollbarContainer) {
-      scrollbarContainer.style.transform = `translateX(${translateX}px)`;
-    } else {
+  let scrollbarContainer = document.querySelector('.scrollbar-container');
+  if (scrollbarContainer) {
+      // Adjust the translation to start at the left side
+      let adjustedTranslateX = translateX - 180;
+      scrollbarContainer.style.transform = `translateX(${adjustedTranslateX}px)`;
+  } else {
       console.error('Scrollbar container not found.');
-    }
-    //in this function 1.8px is 1% ex(90px is 50%)
   }
+}
 
   function updateParagraphsPercentage(percentage) {
     let paragraphs = document.querySelectorAll('.scrollbar-container p');
@@ -19,7 +20,7 @@ function translateScrollbarContainerX(translateX) {
   }
 
   function convertPercentageToPixel (percentage) {
-    return percentage * 1.8;
+    return percentage * 3.55;
   }
 
   function updateScrollbar(percentage) {
@@ -28,5 +29,13 @@ function translateScrollbarContainerX(translateX) {
     updateParagraphsPercentage(percentage);
 
   }
+
+    function updateScrollbar(percentage) {
+    let pixels = convertPercentageToPixel(percentage);
+    translateScrollbarContainerX(pixels)
+    updateParagraphsPercentage(percentage);
+
+  }
+
 
   updateScrollbar(50);
