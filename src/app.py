@@ -1,6 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, static_url_path='/static', static_folder='static')
+
+# Configure SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///names.db'
+db = SQLAlchemy(app)
+
+# Define your database model
+class Name(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
 
 
 @app.route('/')
