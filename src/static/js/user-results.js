@@ -9,15 +9,11 @@ function translateScrollbarContainerX(translateX) {
   }
 }
 
-  function updateParagraphsPercentage(percentage) {
-    let paragraphs = document.querySelectorAll('.scrollbar-container p');
-    for (let i = 0; i < 1; i++) {
-  paragraphs[i].textContent = percentage + '%';
-  
-  }
-  //TODO Change function name and make it work for all scrollbars, not just the first one
-  //the for loop only iterates once so function name is incorrect
-  }
+function updateParagraphsPercentage(percentage) {
+  let paragraph = document.querySelector('.scrollbar-container p');
+      paragraph.textContent = percentage + '%';
+}
+
 
   function convertPercentageToPixel (percentage) {
     return percentage * 3.55;
