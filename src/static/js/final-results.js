@@ -1,7 +1,7 @@
 function translateScrollbarContainerX(id, translateX) {
     let scrollbarContainer = document.getElementById(id);
     if (scrollbarContainer) {
-        // Adjust the translation to start at the left side (starts tranlated -180px)
+        // Adjust the translation to start at the left side (starts tranlated -180px to appear at 0% of bar)
         let adjustedTranslateX = translateX - 180;
         scrollbarContainer.style.transform = `translateX(${adjustedTranslateX}px)`;
     } else {
