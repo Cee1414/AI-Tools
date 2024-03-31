@@ -32,7 +32,11 @@ function updateParagraphsPercentage(id, percentage) {
 
   }
 
- updateScrollbar("scrollbar-container-one", 50)
+ updateScrollbar("scrollbar-container-one", 28)
+ updateScrollbar("scrollbar-container-two", 50)
+ updateScrollbar("scrollbar-container-three", 84)
+ updateScrollbar("scrollbar-container-four", 66)
+ updateScrollbar("scrollbar-container-five", 12)
 
   
   
