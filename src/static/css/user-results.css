@@ -139,11 +139,12 @@ body {
 }
 
 .horizontal-line::before {
-    content: '';
+    /* this makes a vertical line in the middle  */
+  content: '';
   position: absolute;
   top: -3px; /* Adjust as needed to protrude out of the top */
   bottom: -3px; /* Adjust as needed to protrude out of the bottom */
-  left: 51.35%; /* Adjust as needed to position the vertical line */
+  left: 51%; /* Adjust as needed to position the vertical line */
   transform: translateX(-50%); /* Move the line back to the left by half its width */
   border-left: 4px solid black; /* Adjust thickness and color as needed */
   }
