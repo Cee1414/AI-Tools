@@ -69,51 +69,23 @@ body {
 }
 
 
+.break-word {
+line-height: 1.5em; /* Set the desired line height */
+height: 3em; /* Height is 2x line-height, so two lines will display */
+overflow: hidden; /* Prevents extra lines from being visible */
+overflow-wrap: break-word;
+}
 
-.thumbnail1 {
-    padding: 100px 160px 100px 160px; /* top right bottom left */
-    background-color: #FFFFFF;
-}
-.thumbnail2 {
-    padding: 100px 160px 100px 160px; /* top right bottom left */
-    background-color: #FFFFFF;
-}
-.thumbnail3 {
-    padding: 100px 160px 100px 160px; /* top right bottom left */
-    background-color: #FFFFFF;
-}
-.thumbnail4 {
-    padding: 100px 160px 100px 160px; /* top right bottom left */
+
+
+.thumbnail {
+    padding: 10px 10px 10px 10px; /* top right bottom left */
     background-color: #FFFFFF;
 }
 
 .video p {
     align-self: center;
     text-align: center;
-}
-
-.thumbnail1 {
-    background-image: url('/static/images/animals/mobilizing-resized.jpg');
-    background-repeat: no-repeat;
-    background-size: cover; /* or contain, depending on your preference */
-}
-
-.thumbnail2 {
-    background-image: url('/static/images/educational/How Earth Moves-resized.jpg');
-    background-repeat: no-repeat;
-    background-size: cover; /* or contain, depending on your preference */
-}
-
-.thumbnail3 {
-    background-image: url('/static/images/fashionbeauty/Balmain Fall Winter 2024 Fashion Show-resized.jpg');
-    background-repeat: no-repeat;
-    background-size: cover; /* or contain, depending on your preference */
-}
-
-.thumbnail4 {
-    background-image: url('/static/images/gaming/Assassin\'s Creed Mirage-resized.jpg');
-    background-repeat: no-repeat;
-    background-size: cover; /* or contain, depending on your preference */
 }
 
 .left-user {

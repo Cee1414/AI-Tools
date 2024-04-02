@@ -12,7 +12,9 @@
 
     <div class="main-container"> 
         <div class="left">
-            <div class="left-user"></div>
+            <div class="left-user">
+                <img src="{{ url_for('static', filename='images/users/'+user_image) }}" alt="{{ 'user ' + user_num }}">
+            </div>
 
 
         </div>
@@ -24,30 +26,50 @@
 
             <div class="video-container">
 
-            <div class="video">
-                <div class="thumbnail1"></div> 
-                <p>[video 1]</p>                 
-            </div>
-            <div class="video">
-                <div class="thumbnail2"></div> 
-                <p>[video 2]</p>
-            </div>
-            <div class="video">
-                <div class="thumbnail3"></div> 
-                <p>[video 3]</p>
-            </div>
-            <div class="video">
-                <div class="thumbnail4"></div> 
-                <p>[video 4]</p>
-            </div>
+                <a href="{{ url_for('screen2', player_id=player_id, user_num=user_num, choice_num=choice_num, clicked=v1) }}">
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="{{ url_for('static', filename=('images/'+videos[v1].category+'/'+videos[v1].imageurl)) }}" alt="A Youtube Thumbnail" style="max-width: 320px;">
+                        </div>
+                        <div class="break-word">{{ videos[v1].title }}</div>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('screen2', player_id=player_id, user_num=user_num, choice_num=choice_num, clicked=v2) }}">
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="{{ url_for('static', filename=('images/'+videos[v2].category+'/'+videos[v2].imageurl)) }}" alt="A Youtube Thumbnail" style="max-width: 320px;">
+                        </div>
+                        <div class="break-word">{{ videos[v2].title }}</div>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('screen2', player_id=player_id, user_num=user_num, choice_num=choice_num, clicked=v3) }}">
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="{{ url_for('static', filename=('images/'+videos[v3].category+'/'+videos[v3].imageurl)) }}" alt="A Youtube Thumbnail" style="max-width: 320px;">
+                        </div>
+                        <div class="break-word">{{ videos[v3].title }}</div>
+                    </div>
+                </a>
+
+                <a href="{{ url_for('screen2', player_id=player_id, user_num=user_num, choice_num=choice_num, clicked=v4) }}">
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="{{ url_for('static', filename=('images/'+videos[v4].category+'/'+videos[v4].imageurl)) }}" alt="A Youtube Thumbnail" style="max-width: 320px;">
+                        </div>
+                        <div class="break-word">{{ videos[v4].title }}</div>
+                    </div>
+                </a>
 
             </div>
         </div>
         
     </div>
 
+    <!--
     <script src="{{url_for('static',filename='js/screen1.js')}}"></script>
-    
+    -->
 
 </body>
 </html>

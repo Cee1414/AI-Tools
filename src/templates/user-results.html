@@ -13,8 +13,10 @@
     <div class="main-container"> 
         <div class="left">
             
-            <p>Results for user 1:</p>
-            <div class="user-picture"></div>
+            <p>Results for user {{ user.number }}:</p>
+            <div class="user-picture">
+                <img src="{{ url_for('static', filename='images/users/'+user.imageurl) }}" alt="{{ 'user ' + user.number }}">
+            </div>
 
 
         </div>
@@ -26,7 +28,7 @@
             <div class="results-container-top">News:</div>
             <div class="results-container">
                 <div id="scrollbar-container-one" class="scrollbar-container">
-                    <p>10%</p>
+                    <p>{{ user.scores["news"] }}%</p>
                     <div class="triangle row1-triangle"></div>
                 </div>
             <div class="results-bottom">
@@ -43,7 +45,7 @@
                 <div class="results-container-top">Educational:</div>
                 <div class="results-container">
                     <div id="scrollbar-container-two" class="scrollbar-container">
-                        <p>10%</p>
+                        <p>{{ user.scores["educational"] }}%</p>
                         <div class="triangle row2-triangle"></div>
                     </div>
                 <div class="results-bottom">
@@ -60,7 +62,7 @@
                     <div class="results-container-top">Sports:</div>
                     <div class="results-container">
                         <div id="scrollbar-container-three" class="scrollbar-container">
-                            <p>10%</p>
+                            <p>{{ user.scores["sports"] }}%</p>
                             <div class="triangle row3-triangle"></div>
                         </div>
                     <div class="results-bottom">
@@ -77,7 +79,7 @@
                         <div class="results-container-top">Gaming:</div>
                         <div class="results-container">
                             <div id="scrollbar-container-four" class="scrollbar-container">
-                                <p>10%</p>
+                                <p>{{ user.scores["gaming"] }}%</p>
                                 <div class="triangle row4-triangle"></div>
                             </div>
                         <div class="results-bottom">
@@ -94,7 +96,7 @@
                             <div class="results-container-top">Fashion and Beauty:</div>
                             <div class="results-container">
                                 <div id="scrollbar-container-five" class="scrollbar-container">
-                                    <p>10%</p>
+                                    <p>{{ user.scores["fashionbeauty"] }}%</p>
                                     <div class="triangle row5-triangle"></div>
                                 </div>
                             <div class="results-bottom">
@@ -109,7 +111,10 @@
                             </div>
             
             </div>
-            <div class="next-button">next</div>
+
+            <a href="{{ url_for('screen1', player_id=player_id, user_num=new_number, choice_num='0') }}">
+                <div class="next-button">next</div>
+            </a>
             </div>
             
         </div>
@@ -118,8 +123,9 @@
         
     </div>
 
+    <!--
     <script src="{{url_for('static',filename='js/user-results.js')}}"></script>
-    
+    -->
 
 </body>
 </html>
