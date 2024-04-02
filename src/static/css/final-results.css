@@ -236,7 +236,6 @@ body {
 }
 
 .user-picture {
-    background-image: url('/static/images/people/person1-resized-final-results.jpg');
     background-repeat: no-repeat;
     background-size: cover; /* or contain, depending on your preference */
 }

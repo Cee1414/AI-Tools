@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 import random
 import os
 import time
+import json
+
 
 app = Flask(__name__, static_url_path='/static', static_folder='static')
 
@@ -103,19 +105,18 @@ def screen1(player_id, user_num, choice_num):
 def screen2(player_id, user_num, choice_num, clicked):
     global videos
 
+    if user_num == '5':
+        return final_results(player_id=player_id,user_num='0')
+    
+    #add the score to the category:
     if clicked != '-1':
-        #add the score to the category:
         for key in users[int(user_num)].scores:
             if key == videos[int(clicked)].category:
                 users[int(user_num)].scores[key] += 10
 
-    if int(choice_num) == 9:
-        if int(user_num) == 4:
-            #call final_results at the end
-            return final_results()
-        else:
-            #call results
-            return user_results(player_id=player_id,user_num=user_num,)
+    if int(choice_num) == 10:
+        #call results
+        return user_results(player_id=player_id,user_num=user_num)
     else:
         return screen1(player_id, user_num, str(int(choice_num)+1))
 
@@ -132,9 +133,30 @@ def user_results(player_id, user_num):
                            new_number=str(int(user_num)+1)
                            )
 
-@app.route('/final-results')
-def final_results():
-    return render_template('final-results.html')
+@app.route('/final-results/<player_id>/<user_num>')
+def final_results(player_id, user_num):
+    global users
+    
+    return render_template('final-results.html',
+                           player_id=player_id,
+                           user=users[int(user_num)],
+                           prev_user=str((int(user_num)+4)%5),
+                           next_user=str((int(user_num)+1)%5)
+                           )
+
+
+@app.route('/exit/<player_id>')
+def exit(player_id):
+
+    #write to file (temporary measure)
+    with open('data/'+player_id+'.json', 'w') as f:
+        for user in users:
+            json.dump((user.number, user.scores), f)
+
+    #reset
+    return index()
+
+
 
 
 if __name__ == '__main__':

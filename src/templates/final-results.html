@@ -19,7 +19,7 @@
                 <div class="results-container-top">News:</div>
                 <div class="results-container">
                     <div id="your-results-scrollbar-container-one" class="scrollbar-container">
-                        <p>10%</p>
+                        <p>{{ user.scores["news"] }}%</p>
                         <div class="triangle row1-triangle"></div>
                     </div>
                 <div class="results-bottom">
@@ -32,11 +32,12 @@
                 </div>                 
                 </div>
                 </div>
+
                 <div class="results-container-holder">
                     <div class="results-container-top">Educational:</div>
                     <div class="results-container">
                         <div id="your-results-scrollbar-container-two" class="scrollbar-container">
-                            <p>10%</p>
+                            <p>{{ user.scores["educational"] }}%</p>
                             <div class="triangle row2-triangle"></div>
                         </div>
                     <div class="results-bottom">
@@ -49,11 +50,12 @@
                     </div>                 
                     </div>
                     </div>
+
                     <div class="results-container-holder">
                         <div class="results-container-top">Sports:</div>
                         <div class="results-container">
                             <div id="your-results-scrollbar-container-three" class="scrollbar-container">
-                                <p>10%</p>
+                                <p>{{ user.scores["sports"] }}%</p>
                                 <div class="triangle row3-triangle"></div>
                             </div>
                         <div class="results-bottom">
@@ -66,11 +68,12 @@
                         </div>                 
                         </div>
                         </div>
+
                         <div class="results-container-holder">
                             <div class="results-container-top">Gaming:</div>
                             <div class="results-container">
                                 <div id="your-results-scrollbar-container-four" class="scrollbar-container">
-                                    <p>10%</p>
+                                    <p>{{ user.scores["gaming"] }}%</p>
                                     <div class="triangle row4-triangle"></div>
                                 </div>
                             <div class="results-bottom">
@@ -83,11 +86,12 @@
                             </div>                 
                             </div>
                             </div>
+
                             <div class="results-container-holder">
                                 <div class="results-container-top">Fashion and Beauty:</div>
                                 <div class="results-container">
                                     <div id="your-results-scrollbar-container-five" class="scrollbar-container">
-                                        <p>10%</p>
+                                        <p>{{ user.scores["fashionbeauty"] }}%</p>
                                         <div class="triangle row5-triangle"></div>
                                     </div>
                                 <div class="results-bottom">
@@ -104,25 +108,31 @@
                 </div>
         </div>
         <div class="mid">
-            <div class="user-picture"></div>
-            <p class="user-name">user 1</p>
+            <div class="user-picture">
+                <img src="{{ url_for('static', filename='images/users/'+user.imageurl) }}" alt="{{ 'user ' + user.number }}">
+            </div>
+            <p class="user-name">user {{ user.number }}</p>
             <div class="buttons-container">
                 <div class="button-column">
                     <p class="button-text">prev</p>
-                    <div class="triangle-button">
-                        <div class="left-triangle">
+                    <a href="{{ url_for('final_results', player_id=player_id, user_num=prev_user) }}">
+                        <div class="triangle-button">
+                            <div class="left-triangle"></div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="button-column">
                     <p class="button-text">next</p>
-                    <div class="triangle-button">
-                        <div class="right-triangle">
+                    <a href="{{ url_for('final_results', player_id=player_id, user_num=next_user) }}">
+                        <div class="triangle-button">
+                            <div class="right-triangle"></div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
-            <div class="exit-button">Exit</div>
+            <a href="{{ url_for('exit', player_id=player_id) }}">
+                <div class="exit-button">Exit</div>
+            </a>
         </div>
 
         <div class="right">
@@ -220,7 +230,9 @@
 
     </div>    
 
+    <!--
     <script src="{{url_for('static',filename='js/final-results.js')}}"></script>   
+    -->
 
 </body>
 </html>
