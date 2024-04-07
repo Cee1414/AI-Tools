@@ -13,7 +13,10 @@
         {{ form.hidden_tag() }}
         <div class="form-group">
             {{ form.name.label }}
-            {{ form.name(class="form-control") }} 
+            {{ form.name(class="form-control") }}
+            {% for error in form.name.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+            {% endfor %} 
         </div>
         {{ form.submit(class="btn btn-primary") }}
     </form>

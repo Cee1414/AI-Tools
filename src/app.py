@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import CSRFProtect
 from flask_wtf import FlaskForm
@@ -7,8 +7,11 @@ from wtforms import ValidationError
 from wtforms.validators import DataRequired
 
 
+
+
 app = Flask(__name__, static_url_path='/static', static_folder='static')
 app.config.from_pyfile('../instance/config.py')
+app.config["WTF_CSRF_ENABLED"] = False
 
 secret_key = app.config['SECRET_KEY']
 
@@ -20,6 +23,9 @@ db = SQLAlchemy(app)
 class Name(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
+
+# Create the database tables
+
 
 ##handle forms 
 
@@ -39,6 +45,13 @@ class nameForm(FlaskForm):
 
 ##handle routes
 
+# Clear session on index page 
+@app.before_request
+def clear_session():
+    if request.endpoint == 'index':
+        session.clear()
+
+
 @app.route('/', methods=['GET','POST'])
 def index():
     #process form data
@@ -46,6 +59,8 @@ def index():
     if form.validate_on_submit():
         name = form.name.data
         return f'Hello, {name}!'
+    else:
+        print(form.errors)
     return render_template('index.html', form=form)
 
 @app.route('/screen1')
