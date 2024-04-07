@@ -16,7 +16,7 @@ secret_key = app.config['SECRET_KEY']
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///names.db'
 db = SQLAlchemy(app)
 
-# Define your database model
+# Define database model
 class Name(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)

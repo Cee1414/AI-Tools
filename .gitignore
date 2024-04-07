@@ -2,3 +2,4 @@
 .venv/
 src/__pycache__/app.cpython-311.pyc
 instance/
+data/
