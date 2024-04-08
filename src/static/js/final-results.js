@@ -9,11 +9,6 @@ function translateScrollbarContainerX(id, translateX) {
     }
   }
   
-  // function updateParagraphsPercentage(percentage) {
-  //   let paragraph = document.querySelector('.scrollbar-container p');
-  //       paragraph.textContent = percentage + '%';
-  // }
-  
   function updateParagraphsPercentage(id, percentage) {
         let element = document.getElementById(id);
         let paragraph = element.querySelector('p');
@@ -31,7 +26,18 @@ function translateScrollbarContainerX(id, translateX) {
       updateParagraphsPercentage(id, percentage);
   
     }
-  
+
+    // exit button
+
+    function exitButton() {
+      document.getElementById("exit").addEventListener("click", function() {
+      // Redirect to index page
+      window.location.href = "/";
+      });
+    }
+   
+  exitButton();
+    
    updateScrollbar("your-results-scrollbar-container-one", 36)
    updateScrollbar("your-results-scrollbar-container-two", 77)
    updateScrollbar("your-results-scrollbar-container-three", 14)
