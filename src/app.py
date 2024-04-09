@@ -112,9 +112,9 @@ def screen2(player_id, user_num, choice_num, clicked):
     if clicked != '-1':
         for key in users[int(user_num)].scores:
             if key == videos[int(clicked)].category:
-                users[int(user_num)].scores[key] += 10
+                users[int(user_num)].scores[key] += 20
 
-    if int(choice_num) == 10:
+    if int(choice_num) == 5:
         #call results
         return user_results(player_id=player_id,user_num=user_num)
     else:
@@ -152,8 +152,16 @@ def exit(player_id):
     with open('data/'+player_id+'.json', 'w') as f:
         for user in users:
             json.dump((user.number, user.scores), f)
+            user.scores = {
+                           'educational': 0,
+                           'fashionbeauty': 0,
+                           'gaming': 0,
+                           'news': 0,
+                           'sports': 0,
+                          }
 
     #reset
+            
     return index()
 
 
