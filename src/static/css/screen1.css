@@ -22,7 +22,7 @@ body {
 }
 
 .left-user {
-    padding: 380px;
+    padding: 30px;
     background-color: #FF80FF;
     border-radius: 5px;
     
@@ -54,14 +54,13 @@ body {
  
 .video {
     
-    padding: 20px; /* top right bottom left */
+    width: 360px;
+    height: 320px;
     background-color: #FFEA80;
-    margin: 15px;
-    border-radius: 5px;
-    border: 4px solid transparent; /* Initial border */
+    margin: 10px;
     transition: border-color 0.3s ease; /* Transition for smooth effect */
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .video:hover {
@@ -70,17 +69,19 @@ body {
 
 
 .break-word {
-line-height: 1.5em; /* Set the desired line height */
-height: 3em; /* Height is 2x line-height, so two lines will display */
-overflow: hidden; /* Prevents extra lines from being visible */
-overflow-wrap: break-word;
+    margin: 00px 20px 20px 20px;
+    text-align: center;
+    line-height: 1.5em; /* Set the desired line height */
+    height: 3em; /* Height is 2x line-height, so two lines will display */
+    overflow: hidden; /* Prevents extra lines from being visible */
+    overflow-wrap: break-word;
 }
 
 
 
 .thumbnail {
-    padding: 10px 10px 10px 10px; /* top right bottom left */
-    background-color: #FFFFFF;
+    padding: 20px 20px 20px 20px; /* top right bottom left */
+    background-color: #FFEA80;
 }
 
 .video p {
@@ -89,7 +90,6 @@ overflow-wrap: break-word;
 }
 
 .left-user {
-    background-image: url('/static/images/people/person1-resized-screen1.jpg');
     background-repeat: no-repeat;
     background-size: cover; /* or contain, depending on your preference */
 }

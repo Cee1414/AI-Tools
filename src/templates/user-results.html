@@ -15,7 +15,7 @@
             
             <p>Results for user {{ user.number }}:</p>
             <div class="user-picture">
-                <img src="{{ url_for('static', filename='images/users/'+user.imageurl) }}" alt="{{ 'user ' + user.number }}">
+                <img src="{{ url_for('static', filename='images/users/'+user.imageurl) }}" alt="{{ 'user ' + user.number }}" style="max-width: 600px;">
             </div>
 
 
@@ -45,7 +45,7 @@
                 <div class="results-container-top">Educational:</div>
                 <div class="results-container">
                     <div id="scrollbar-container-two" class="scrollbar-container">
-                        <p>{{ user.scores["educational"] }}%</p>
+                        <p style="margin: 10px;">{{ user.scores["educational"] }}%</p>
                         <div class="triangle row2-triangle"></div>
                     </div>
                 <div class="results-bottom">

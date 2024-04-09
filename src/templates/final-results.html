@@ -109,7 +109,7 @@
         </div>
         <div class="mid">
             <div class="user-picture">
-                <img src="{{ url_for('static', filename='images/users/'+user.imageurl) }}" alt="{{ 'user ' + user.number }}">
+                <img src="{{ url_for('static', filename='images/users/'+user.imageurl) }}" alt="{{ 'user ' + user.number }}" style="max-width: 400px;">
             </div>
             <p class="user-name">user {{ user.number }}</p>
             <div class="buttons-container">
