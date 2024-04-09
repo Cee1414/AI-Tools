@@ -42,15 +42,16 @@ class lowerCaseStringField(StringField):
 
 class nameForm(FlaskForm):
     name = lowerCaseStringField('Input First Name And Last Initial:', validators=[DataRequired(), validateName])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Play')
 
 ##handle routes
 
-# Clear session on index page 
+# Clear session on visiting index page 
 @app.before_request
 def clear_session():
-    if request.endpoint == 'index':
+    if request.method == 'GET' and request.endpoint == 'index':
         session.clear()
+        print("session-cleared")
 
 
 @app.route('/', methods=['GET','POST'])

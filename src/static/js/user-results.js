@@ -41,6 +41,8 @@ function updateParagraphsPercentage(id, percentage) {
     });
   }
 
+  //TODO: Make next button go to next set of videos
+
 
  nextButton();
  updateScrollbar("scrollbar-container-one", 28)
