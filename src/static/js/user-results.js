@@ -32,6 +32,17 @@ function updateParagraphsPercentage(id, percentage) {
 
   }
 
+  //next button functionality
+
+  function nextButton() {
+    document.getElementById("next").addEventListener("click", function() {
+    // Redirect to final-results page
+    window.location.href = "/final-results";
+    });
+  }
+
+
+ nextButton();
  updateScrollbar("scrollbar-container-one", 28)
  updateScrollbar("scrollbar-container-two", 50)
  updateScrollbar("scrollbar-container-three", 84)

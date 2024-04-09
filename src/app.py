@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import CSRFProtect
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms import ValidationError
 from wtforms.validators import DataRequired
+from flask_migrate import Migrate
 
 
 
@@ -16,16 +17,16 @@ app.config["WTF_CSRF_ENABLED"] = False
 secret_key = app.config['SECRET_KEY']
 
 # Configure SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///names.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./data/names.db'
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 # Define database model
 class Name(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
+    full_name = db.Column(db.String(100), nullable=False)
 
 # Create the database tables
-
 
 ##handle forms 
 
@@ -58,7 +59,12 @@ def index():
     form = nameForm()
     if form.validate_on_submit():
         name = form.name.data
-        return f'Hello, {name}!'
+
+        # new_name = Name(full_name=name)
+        # db.session.add(new_name)
+        # db.session.commit()
+
+        return redirect(url_for('screen1'))
     else:
         print(form.errors)
     return render_template('index.html', form=form)
@@ -78,3 +84,6 @@ def final_results():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
+
+    
+    
