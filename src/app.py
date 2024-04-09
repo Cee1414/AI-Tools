@@ -39,12 +39,14 @@ class User:
 
 #global variables for videos/users
 videos = []
-users = []
+users_dict = {}
 
 
 @app.route('/')
 def index():
     global videos
+    global users_dict
+    users = []
 
     #read in images
     for root, dirs, files in os.walk("static/images"):
@@ -75,14 +77,15 @@ def index():
                     # Append the information to the list
                     videos.append(Video(file_path,file_name,folder_name))
 
-    player_id = round(time.time())
-
+    player_id = str(round(time.time()))
+    users_dict[player_id] = users
+    
     return render_template('index.html', player_id=player_id)
 
 @app.route('/screen1/<player_id>/<user_num>/<choice_num>')
 def screen1(player_id, user_num, choice_num):
     global videos
-    global users
+    global users_dict
 
     v1 = random.randint(0,len(videos)-1)
     v2 = (v1+4) % len(videos)
@@ -93,7 +96,7 @@ def screen1(player_id, user_num, choice_num):
                            player_id=player_id,
                            user_num=user_num,
                            choice_num=choice_num,
-                           user_image=users[int(user_num)].imageurl,
+                           user_image=users_dict[player_id][int(user_num)].imageurl,
                            videos=videos, 
                            v1=v1,
                            v2=v2,
@@ -110,9 +113,9 @@ def screen2(player_id, user_num, choice_num, clicked):
     
     #add the score to the category:
     if clicked != '-1':
-        for key in users[int(user_num)].scores:
+        for key in users_dict[player_id][int(user_num)].scores:
             if key == videos[int(clicked)].category:
-                users[int(user_num)].scores[key] += 20
+                users_dict[player_id][int(user_num)].scores[key] += 20
 
     if int(choice_num) == 5:
         #call results
@@ -125,21 +128,21 @@ def screen2(player_id, user_num, choice_num, clicked):
 
 @app.route('/user-results/<player_id>/<user_num>')
 def user_results(player_id, user_num):
-    global users
+    global users_dict
 
     return render_template('user-results.html',
-                           user=users[int(user_num)],
+                           user=users_dict[player_id][int(user_num)],
                            player_id=player_id,
                            new_number=str(int(user_num)+1)
                            )
 
 @app.route('/final-results/<player_id>/<user_num>')
 def final_results(player_id, user_num):
-    global users
+    global users_dict
     
     return render_template('final-results.html',
                            player_id=player_id,
-                           user=users[int(user_num)],
+                           user=users_dict[player_id][int(user_num)],
                            prev_user=str((int(user_num)+4)%5),
                            next_user=str((int(user_num)+1)%5)
                            )
@@ -149,18 +152,8 @@ def final_results(player_id, user_num):
 def exit(player_id):
 
     #write to file (temporary measure)
-    with open('data/'+player_id+'.json', 'w') as f:
-        for user in users:
-            json.dump((user.number, user.scores), f)
-            user.scores = {
-                           'educational': 0,
-                           'fashionbeauty': 0,
-                           'gaming': 0,
-                           'news': 0,
-                           'sports': 0,
-                          }
-
-    #reset
+    # TODO
+    # maybe use pandas dataframe? or maybe sqlite
             
     return index()
 
