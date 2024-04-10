@@ -1,5 +1,6 @@
-# Ignore virtual environment
 .venv/
 src/__pycache__/app.cpython-311.pyc
 instance/
 data/
+__pycache__/
+migrations/
