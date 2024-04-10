@@ -17,7 +17,7 @@ app.config["WTF_CSRF_ENABLED"] = False
 secret_key = app.config['SECRET_KEY']
 
 # Configure SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./data/names.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///names.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -27,6 +27,9 @@ class Name(db.Model):
     full_name = db.Column(db.String(100), nullable=False)
 
 # Create the database tables
+
+with app.app_context():
+     db.create_all()
 
 ##handle forms 
 
@@ -60,9 +63,9 @@ def index():
     if form.validate_on_submit():
         name = form.name.data
 
-        # new_name = Name(full_name=name)
-        # db.session.add(new_name)
-        # db.session.commit()
+        new_name = Name(full_name=name)
+        db.session.add(new_name)
+        db.session.commit()
 
         return redirect(url_for('screen1'))
     else:
@@ -84,6 +87,8 @@ def final_results():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
-
-    
+    names = Name.query.all()
+    for name in names:
+        print(name)
+       
     
