@@ -92,7 +92,13 @@ def clear_session():
 @app.route('/', methods=['GET','POST'])
 def index():
     #insert users
+
     insert_users('bob')
+    insert_users('susan')
+    insert_users('Matthew')
+    insert_users('Pamela')
+    insert_users('Jasper')
+
     #process form data
     form = nameForm()
     if form.validate_on_submit():
