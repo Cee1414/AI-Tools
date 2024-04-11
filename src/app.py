@@ -48,6 +48,17 @@ user_name_association = db.Table('user_name_association',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
 )
 
+#insert users
+def insert_users(user_name):
+    if not User.query.filter_by(user_name=user_name).first():
+         new_user = User(user_name=user_name)
+         db.session.add(new_user)
+         db.session.commit()
+         print(f"User {user_name} inserted into the database.")
+    else:
+        print(f'{user_name} already in database')
+        
+
 # Create the database tables
 
 with app.app_context():
@@ -80,6 +91,8 @@ def clear_session():
 
 @app.route('/', methods=['GET','POST'])
 def index():
+    #insert users
+    insert_users('bob')
     #process form data
     form = nameForm()
     if form.validate_on_submit():
@@ -113,7 +126,9 @@ def final_results():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
-    names = Name.query.all()
+    
+    
+    
     
        
     
