@@ -93,7 +93,7 @@ body {
 }
 
 .thumbnail1 {
-    background-image: url('/static/images/animals/mobilizing-resized.jpg');
+    background-image: url('/static/images/news/ABC World News Tonight with David Muir-resized.jpg');
     background-repeat: no-repeat;
     background-size: cover; /* or contain, depending on your preference */
 }
