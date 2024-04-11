@@ -22,9 +22,31 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # Define database model
+
 class Name(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(100), nullable=False)
+    # Define a many-to-many relationship with User
+    users = db.relationship('User', secondary='user_name_association', backref='names')
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(100), nullable=False)
+    # Define a one-to-many relationship with Choices
+    choices = db.relationship('Choices', backref='user', lazy=True)
+
+class Choices(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    video_choice = db.Column(db.String(100), nullable=False)
+    attribute = db.Column(db.String(100), nullable=False)
+    screenNumber = db.Column(db.Integer, nullable=False)
+
+# Association Table for Name-User Many-to-Many Relationship
+user_name_association = db.Table('user_name_association',
+    db.Column('name_id', db.Integer, db.ForeignKey('name.id')),
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
+)
 
 # Create the database tables
 
@@ -66,6 +88,9 @@ def index():
         new_name = Name(full_name=name)
         db.session.add(new_name)
         db.session.commit()
+        ##debug
+        for name in Name.query.all():
+            print (name.full_name)
 
         return redirect(url_for('screen1'))
     else:
@@ -74,6 +99,7 @@ def index():
 
 @app.route('/screen1')
 def screen1():
+    
     return render_template('screen1.html')
 
 @app.route('/user-results')
@@ -88,7 +114,6 @@ def final_results():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
     names = Name.query.all()
-    for name in names:
-        print(name)
+    
        
     
