@@ -24,29 +24,25 @@ migrate = Migrate(app, db)
 # Define database model
 
 class Name(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    
+    name_id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(100), nullable=False)
-    # Define a many-to-many relationship with User
-    users = db.relationship('User', secondary='user_name_association', backref='names')
+    choices = db.relationship('Choices', back_populates='name')
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(100), nullable=False)
-    # Define a one-to-many relationship with Choices
-    choices = db.relationship('Choices', backref='user', lazy=True)
+    choices = db.relationship('Choices', back_populates='user')
 
 class Choices(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    video_choice = db.Column(db.String(100), nullable=False)
-    attribute = db.Column(db.String(100), nullable=False)
-    screenNumber = db.Column(db.Integer, nullable=False)
-
-# Association Table for Name-User Many-to-Many Relationship
-user_name_association = db.Table('user_name_association',
-    db.Column('name_id', db.Integer, db.ForeignKey('name.id')),
-    db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
-)
+    choice_id = db.Column(db.Integer, primary_key=True)
+    name_id = db.Column(db.Integer, db.ForeignKey('name.name_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+    screen_number = db.Column(db.Integer, nullable=False)
+    choice_number = db.Column(db.Integer, nullable=False)
+    attribute = db.Column(db.String(255), nullable=False)
+    name = db.relationship('Name', back_populates='choices')
+    user = db.relationship('User', back_populates='choices')
 
 #insert users
 def insert_users(user_name):
@@ -95,9 +91,9 @@ def index():
 
     insert_users('bob')
     insert_users('susan')
-    insert_users('Matthew')
-    insert_users('Pamela')
-    insert_users('Jasper')
+    insert_users('matthew')
+    insert_users('pamela')
+    insert_users('jasper')
 
     #process form data
     form = nameForm()
@@ -107,6 +103,7 @@ def index():
         new_name = Name(full_name=name)
         db.session.add(new_name)
         db.session.commit()
+        session['full_name'] = name
         ##debug
         for name in Name.query.all():
             print (name.full_name)
@@ -118,7 +115,29 @@ def index():
 
 @app.route('/screen1')
 def screen1():
+    name = session.get('full_name')
+    session['user_name'] = 'bob'
+    session['screen_number'] = 1
+    userNum = 1
+    user_name = session.get('user_name')
+    vidSet = session.get('screen_number')
+    match userNum:
+        case 1:
+            print(f"name: {name} user: {user_name}")
+        case 2: 
+            session['user_name'] = 'susan'
+            print(f"name: {name} user: {user_name}")
+        case 3: 
+            session['user_name'] = 'matthew'
+            print(f"name: {name} user: {user_name}")
+        case 4: 
+            session['user_name'] = 'pamela'
+            print(f"name: {name} user: {user_name}")
+        case 5: 
+            session['user_name'] = 'jasper'
+            print(f"name: {name} user: {user_name}")
     
+
     return render_template('screen1.html')
 
 @app.route('/user-results')
