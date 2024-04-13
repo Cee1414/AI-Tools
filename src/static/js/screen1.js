@@ -19,4 +19,4 @@ function handleClick(videoID, videoUrl) {
     });
 }
 
-handleClick('vid2', 'static/images/news/ABC World News Tonight with David Muir-resized.jpg')
+handleClick('vid2', "/static/images/news/LIVE NBC News NOW.jpg")
