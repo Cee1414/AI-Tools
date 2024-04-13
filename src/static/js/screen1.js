@@ -1,4 +1,4 @@
-
+import allVideos from './videos.js'
 
 function updateVideoImage(videoID, videoUrl) {
         
@@ -19,4 +19,6 @@ function handleClick(videoID, videoUrl) {
     });
 }
 
-handleClick('vid2', "/static/images/news/LIVE NBC News NOW.jpg")
+handleClick('vid2', "/static/images/news/LIVE NBC News NOW.jpg");
+
+console.log(allVideos[1].url);
