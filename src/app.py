@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import CSRFProtect
 from flask_wtf import FlaskForm
@@ -104,6 +104,9 @@ def index():
         db.session.add(new_name)
         db.session.commit()
         session['full_name'] = name
+        #initialize user and screen number
+        session['user_name'] = 'bob'
+        session['screen_number'] = 1
         ##debug
         for name in Name.query.all():
             print (name.full_name)
@@ -116,29 +119,15 @@ def index():
 @app.route('/screen1')
 def screen1():
     name = session.get('full_name')
-    session['user_name'] = 'bob'
-    session['screen_number'] = 1
-    userNum = 1
     user_name = session.get('user_name')
     vidSet = session.get('screen_number')
-    match userNum:
-        case 1:
-            print(f"name: {name} user: {user_name}")
-        case 2: 
-            session['user_name'] = 'susan'
-            print(f"name: {name} user: {user_name}")
-        case 3: 
-            session['user_name'] = 'matthew'
-            print(f"name: {name} user: {user_name}")
-        case 4: 
-            session['user_name'] = 'pamela'
-            print(f"name: {name} user: {user_name}")
-        case 5: 
-            session['user_name'] = 'jasper'
-            print(f"name: {name} user: {user_name}")
     
 
-    return render_template('screen1.html')
+    return render_template('screen1.html', name=name, vidSet=vidSet, user_name=user_name)
+
+@app.route('/update_session_data', methods=['POST'])
+def update_session_data():
+    return redirect(url_for('screen1'))
 
 @app.route('/user-results')
 def user_results():
