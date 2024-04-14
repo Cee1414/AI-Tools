@@ -56,10 +56,11 @@ function updateAllVideos() {
     updateVideoImage('vid3', video3.url);
     updateVideoImage('vid4', video4.url);
 
-    //TODO change objects
 }
 
 function randomizeVideoObjects() {
+    //todo check if attribute is already taken or if same as prev video
+
     video1 = allVideos[randomVideoNum()];
     video2 = allVideos[randomVideoNum()];
     video3 = allVideos[randomVideoNum()];
