@@ -12,13 +12,21 @@ function updateData(videoID) {
 }
 
 function handleClick(videoID, videoUrl) {
+    let vidNum = 'vid' + videoID.slice(5); //gets id of thumbnail
+     
+    console.log(vidNum); // Output: "vid2 for video2" 
+
+
     let element = document.getElementById(videoID);
     element.addEventListener('click', function() {
         
-        updateVideoImage(videoID, videoUrl);
+        updateVideoImage(vidNum, videoUrl);
     });
 }
 
-handleClick('vid2', "/static/images/news/LIVE NBC News NOW.jpg");
+handleClick('video1', "/static/images/news/LIVE NBC News NOW.jpg");
+handleClick('video2', "/static/images/news/LIVE NBC News NOW.jpg");
+handleClick('video3', "/static/images/news/LIVE NBC News NOW.jpg");
+handleClick('video4', "/static/images/news/LIVE NBC News NOW.jpg");
 
-console.log(allVideos[1].url);
+

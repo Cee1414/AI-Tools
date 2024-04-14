@@ -39,7 +39,7 @@ class Choices(db.Model):
     name_id = db.Column(db.Integer, db.ForeignKey('name.name_id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     screen_number = db.Column(db.Integer, nullable=False)
-    choice_number = db.Column(db.Integer, nullable=False)
+    video_url = db.Column(db.String(100), nullable=False)
     attribute = db.Column(db.String(255), nullable=False)
     name = db.relationship('Name', back_populates='choices')
     user = db.relationship('User', back_populates='choices')
@@ -127,6 +127,8 @@ def screen1():
 
 @app.route('/update_session_data', methods=['POST'])
 def update_session_data():
+
+    
     return redirect(url_for('screen1'))
 
 @app.route('/user-results')
