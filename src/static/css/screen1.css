@@ -93,25 +93,21 @@ body {
 }
 
 .thumbnail1 {
-    background-image: url('/static/images/news/ABC World News Tonight with David Muir.jpg');
     background-repeat: no-repeat;
     background-size: cover; /* or contain, depending on your preference */
 }
 
 .thumbnail2 {
-    background-image: url('/static/images/fashionbeauty/Balmain Fall Winter 2024 Fashion Show.jpg');
     background-repeat: no-repeat;
     background-size: cover; /* or contain, depending on your preference */
 }
 
 .thumbnail3 {
-    background-image: url("/static/images/gaming/Assassin's Creed Mirage.jpg");
     background-repeat: no-repeat;
     background-size: cover; /* or contain, depending on your preference */
 }
 
 .thumbnail4 {
-    background-image: url('/static/images/educational/How AIs, like ChatGPT, Learn.jpg');
     background-repeat: no-repeat;
     background-size: cover; /* or contain, depending on your preference */
 }
