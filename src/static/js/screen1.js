@@ -16,19 +16,9 @@ function updateData(videoID) {
 
 }
 
+function updateScreenNumber() {
 
-// function handleClick(videoID, videoUrl) {
-//     let vidNum = 'vid' + videoID.slice(5); //gets id of thumbnail
-
-    
-//     let elementToPress = document.getElementById(videoID);
-//     elementToPress.addEventListener('click', function() {
-//     updateVideoImage(vidNum, videoUrl);
-//     });
-
-
-// }
-// WORKS FOR ONE VIDEO
+}
 
 function handleClick(videoID) {
     let vidNum = 'vid' + videoID.slice(5); //gets id of thumbnail
@@ -46,7 +36,6 @@ function randomVideoNum() {
     let randomNum = Math.floor(Math.random() * (allVideos.length)); // Generates random integers from 0 to arr length-1
     return randomNum;
 }
-
 
 function updateAllVideos() {
     randomizeVideoObjects();
@@ -111,6 +100,17 @@ handleClick('video2', video2.url);
 handleClick('video3', video3.url);
 handleClick('video4', video4.url);
 
+function checkScrn() {
+
+    axios.get('/get_session_variables')
+  .then(response => {
+    console.log(response.data.user_name);
+    // Use the session variable in your frontend logic
+  })
+  .catch(error => {
+    console.error('Error retrieving session variables:', error);
+  });
+}
 
 
-
+checkScrn();

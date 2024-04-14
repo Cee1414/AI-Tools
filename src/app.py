@@ -7,14 +7,19 @@ from wtforms import ValidationError
 from wtforms.validators import DataRequired
 from flask_migrate import Migrate
 
-
-
+from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__, static_url_path='/static', static_folder='static')
 app.config.from_pyfile('../instance/config.py')
 app.config["WTF_CSRF_ENABLED"] = False
 
 secret_key = app.config['SECRET_KEY']
+
+# Enable the Debug Toolbar
+app.debug = True
+
+toolbar = DebugToolbarExtension(app)
+
 
 # Configure SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///names.db'
@@ -38,7 +43,6 @@ class Choices(db.Model):
     choice_id = db.Column(db.Integer, primary_key=True)
     name_id = db.Column(db.Integer, db.ForeignKey('name.name_id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
-    screen_number = db.Column(db.Integer, nullable=False)
     video_url = db.Column(db.String(100), nullable=False)
     attribute = db.Column(db.String(255), nullable=False)
     name = db.relationship('Name', back_populates='choices')
@@ -125,8 +129,14 @@ def screen1():
 
     return render_template('screen1.html', name=name, vidSet=vidSet, user_name=user_name)
 
-@app.route('/update_session_data', methods=['POST'])
-def update_session_data():
+@app.route('/get_session_variables')
+def get_session_variables():
+    user_name = session.get('user_name')
+    return jsonify({'user_name': user_name})
+    
+
+@app.route('/update_screen_number', methods=['POST'])
+def update_screen_number():
 
     
     return redirect(url_for('screen1'))
