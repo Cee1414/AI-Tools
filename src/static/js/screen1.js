@@ -1,12 +1,5 @@
 import allVideos from './videos.js'
 
-let video1 = allVideos[randomVideoNum()];
-let video2 = allVideos[randomVideoNum()];
-let video3 = allVideos[randomVideoNum()];
-let video4 = allVideos[randomVideoNum()];
-
-let screen1Videos = {video1, video2, video3, video4};
-
 function updateVideoImage(videoID, videoUrl) {
         
         let element = document.getElementById(videoID);
@@ -33,9 +26,11 @@ function handleClick(videoID) {
     
     let elementToPress = document.getElementById(videoID);
     elementToPress.addEventListener('click', function() {
+        sendCurrentVideoData(videoID);
+        randomizeVideoObjects();
         updateAllVideos();
         updateScreenNum();
-        sendCurrentVideo(videoID);
+        
     });
     
 
@@ -47,7 +42,6 @@ function randomVideoNum() {
 }
 
 function updateAllVideos() {
-    randomizeVideoObjects();
 
     updateVideoImage('vid1', video1.url);
     updateVideoImage('vid2', video2.url);
@@ -77,38 +71,8 @@ function randomizeVideoObjects() {
     while (video4.url == prevUrl || (video4.url == video1.url) || (video4.url == video3.url) || (video4.url == video2.url)){
     video4 = allVideos[randomVideoNum()];
     }
+    screen1Videos = {video1, video2, video3, video4};
 }
-
-
-//initialize videos
-
-while ((video2.url == video1.url) || (video2.url == video3.url) || (video2.url == video4.url)){
-    video2 = allVideos[randomVideoNum()];
-    }
-
-while ((video3.url == video1.url) || (video3.url == video2.url) || (video3.url == video4.url)){
-    video3 = allVideos[randomVideoNum()];
-}
-
-while ((video3.url == video1.url) || (video3.url == video2.url) || (video3.url == video4.url)){
-    video3 = allVideos[randomVideoNum()];
-}    
-
-
-
-updateVideoImage('vid1', video1.url);
-updateVideoImage('vid2', video2.url);
-updateVideoImage('vid3', video3.url);
-updateVideoImage('vid4', video4.url);
-
-
-
-
-handleClick('video1', video1.url);
-handleClick('video2', video2.url);
-handleClick('video3', video3.url);
-handleClick('video4', video4.url);
-
 
 function updateScreenNum() {
 
@@ -124,9 +88,44 @@ function updateScreenNum() {
     
 }
 
-function sendCurrentVideo(videoID) {
+function sendCurrentVideoData(videoID) {
     let currentVideo = screen1Videos[videoID];
-    
+    console.log(currentVideo.attribute);
+    console.log(currentVideo.url);
     
 }
 
+//initialize objects
+
+let video1 = allVideos[randomVideoNum()];
+let video2 = allVideos[randomVideoNum()];
+let video3 = allVideos[randomVideoNum()];
+let video4 = allVideos[randomVideoNum()];
+
+let screen1Videos = {video1, video2, video3, video4};
+
+while ((video2.url == video1.url) || (video2.url == video3.url) || (video2.url == video4.url)){
+    video2 = allVideos[randomVideoNum()];
+    }
+
+while ((video3.url == video1.url) || (video3.url == video2.url) || (video3.url == video4.url)){
+    video3 = allVideos[randomVideoNum()];
+}
+
+while ((video3.url == video1.url) || (video3.url == video2.url) || (video3.url == video4.url)){
+    video3 = allVideos[randomVideoNum()];
+}    
+
+//initialize videos
+
+updateVideoImage('vid1', video1.url);
+updateVideoImage('vid2', video2.url);
+updateVideoImage('vid3', video3.url);
+updateVideoImage('vid4', video4.url);
+
+//handle interactions
+
+handleClick('video1', video1.url);
+handleClick('video2', video2.url);
+handleClick('video3', video3.url);
+handleClick('video4', video4.url);
