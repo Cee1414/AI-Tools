@@ -90,8 +90,15 @@ function updateScreenNum() {
 
 function sendCurrentVideoData(videoID) {
     let currentVideo = screen1Videos[videoID];
-    console.log(currentVideo.attribute);
-    console.log(currentVideo.url);
+    
+    axios.post('/update_current_video', currentVideo)
+    .then(response => {
+        
+        console.log(response.data.url);
+    })
+    .catch(error => {
+        console.error(error);
+    });
     
 }
 

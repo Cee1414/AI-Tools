@@ -137,11 +137,12 @@ def update_screen_number():
 
 @app.route('/update_current_video', methods=['POST'])
 def update_current_video():
-    urlAndAttribute  = request.json
-    # session['url'] = ##url 
-    # session['attribute'] = ##url 
-    
-    return jsonify({'message': 'Data received successfully'})
+    data = request.json
+    session['url'] = data.get('url')
+    session['attribute'] = data.get('attribute')
+    url = session.get('url')
+
+    return jsonify({'url': url})
     
 # @app.route('/update_choice', methods=['POST'])
 # def update_choice():
