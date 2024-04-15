@@ -5,6 +5,8 @@ let video2 = allVideos[randomVideoNum()];
 let video3 = allVideos[randomVideoNum()];
 let video4 = allVideos[randomVideoNum()];
 
+let screen1Videos = {video1, video2, video3, video4};
+
 function updateVideoImage(videoID, videoUrl) {
         
         let element = document.getElementById(videoID);
@@ -12,8 +14,16 @@ function updateVideoImage(videoID, videoUrl) {
 
 }
 
-function updateData(videoID) {
-
+function updateChoice() {
+    axios.post('/update_screen_number')
+        .then(response => {
+            console.log(response.data.screen_number); // Log updated screen number
+            // Use the session variable in your frontend logic
+        })
+        .catch(error => {
+            console.error('Error retrieving session variables:', error);
+        });
+    
 }
 
 
@@ -25,7 +35,7 @@ function handleClick(videoID) {
     elementToPress.addEventListener('click', function() {
         updateAllVideos();
         updateScreenNum();
-        
+        sendCurrentVideo(videoID);
     });
     
 
@@ -99,30 +109,24 @@ handleClick('video2', video2.url);
 handleClick('video3', video3.url);
 handleClick('video4', video4.url);
 
-function checkScreenNum() {
-
-    axios.get('/get_screen_number')
-  .then(response => {
-    console.log(response.data.screen_number);
-    // Use the session variable in your frontend logic
-  })
-  .catch(error => {
-    console.error('Error retrieving session variables:', error);
-  });
-}
 
 function updateScreenNum() {
 
     
     axios.post('/update_screen_number')
-    .then(response => {
-        console.log(response.data.screen_number); // Log updated screen number
-        // Use the session variable in your frontend logic
-    })
-    .catch(error => {
-        console.error('Error retrieving session variables:', error);
-    });
+        .then(response => {
+            console.log(response.data.screen_number); // Log updated screen number
+            // Use the session variable in your frontend logic
+        })
+        .catch(error => {
+            console.error('Error retrieving session variables:', error);
+        });
     
 }
 
+function sendCurrentVideo(videoID) {
+    let currentVideo = screen1Videos[videoID];
+    
+    
+}
 

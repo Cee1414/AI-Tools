@@ -129,21 +129,29 @@ def screen1():
 
     return render_template('screen1.html', name=name, vidSet=vidSet, user_name=user_name)
 
-@app.route('/get_screen_number')
-def get_session_variables():
-    screen_number = session.get('screen_number')
-    return jsonify({'screen_number': screen_number})
-
-    
-    
-
 @app.route('/update_screen_number', methods=['POST'])
 def update_screen_number():
     session['screen_number'] += 1
     screen_number = session.get('screen_number')
     return jsonify({'screen_number': screen_number})
+
+@app.route('/update_current_video', methods=['POST'])
+def update_current_video():
+    urlAndAttribute  = request.json
+    # session['url'] = ##url 
+    # session['attribute'] = ##url 
     
+    return jsonify({'message': 'Data received successfully'})
     
+# @app.route('/update_choice', methods=['POST'])
+# def update_choice():
+#     #send object from javascript
+#     full_name = session.get('full_name')
+#     user_name = session.get('user_name')
+
+#     new_choice = Choices(name=full_name, user=user_name, )
+
+#     return jsonify({'updated choice'})
 
 @app.route('/user-results')
 def user_results():
