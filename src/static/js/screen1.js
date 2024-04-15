@@ -16,9 +16,6 @@ function updateData(videoID) {
 
 }
 
-function updateScreenNumber() {
-
-}
 
 function handleClick(videoID) {
     let vidNum = 'vid' + videoID.slice(5); //gets id of thumbnail
@@ -27,8 +24,10 @@ function handleClick(videoID) {
     let elementToPress = document.getElementById(videoID);
     elementToPress.addEventListener('click', function() {
         updateAllVideos();
+        updateScreenNum();
+        
     });
-
+    
 
 }
 
@@ -100,11 +99,11 @@ handleClick('video2', video2.url);
 handleClick('video3', video3.url);
 handleClick('video4', video4.url);
 
-function checkScrn() {
+function checkScreenNum() {
 
-    axios.get('/get_session_variables')
+    axios.get('/get_screen_number')
   .then(response => {
-    console.log(response.data.user_name);
+    console.log(response.data.screen_number);
     // Use the session variable in your frontend logic
   })
   .catch(error => {
@@ -112,5 +111,18 @@ function checkScrn() {
   });
 }
 
+function updateScreenNum() {
 
-checkScrn();
+    
+    axios.post('/update_screen_number')
+    .then(response => {
+        console.log(response.data.screen_number); // Log updated screen number
+        // Use the session variable in your frontend logic
+    })
+    .catch(error => {
+        console.error('Error retrieving session variables:', error);
+    });
+    
+}
+
+

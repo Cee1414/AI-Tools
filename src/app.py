@@ -129,17 +129,21 @@ def screen1():
 
     return render_template('screen1.html', name=name, vidSet=vidSet, user_name=user_name)
 
-@app.route('/get_session_variables')
+@app.route('/get_screen_number')
 def get_session_variables():
-    user_name = session.get('user_name')
-    return jsonify({'user_name': user_name})
+    screen_number = session.get('screen_number')
+    return jsonify({'screen_number': screen_number})
+
+    
     
 
 @app.route('/update_screen_number', methods=['POST'])
 def update_screen_number():
-
+    session['screen_number'] += 1
+    screen_number = session.get('screen_number')
+    return jsonify({'screen_number': screen_number})
     
-    return redirect(url_for('screen1'))
+    
 
 @app.route('/user-results')
 def user_results():
