@@ -8,9 +8,9 @@ function updateVideoImage(videoID, videoUrl) {
 }
 
 function updateChoice() {
-    axios.post('/update_screen_number')
+    axios.post('/update_choice')
         .then(response => {
-            console.log(response.data.screen_number); // Log updated screen number
+            console.log(); // Log updated screen number
             // Use the session variable in your frontend logic
         })
         .catch(error => {
@@ -27,6 +27,7 @@ function handleClick(videoID) {
     let elementToPress = document.getElementById(videoID);
     elementToPress.addEventListener('click', function() {
         sendCurrentVideoData(videoID);
+        updateChoice();
         randomizeVideoObjects();
         updateAllVideos();
         updateScreenNum();

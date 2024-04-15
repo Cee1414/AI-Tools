@@ -144,15 +144,21 @@ def update_current_video():
 
     return jsonify({'url': url})
     
-# @app.route('/update_choice', methods=['POST'])
-# def update_choice():
-#     #send object from javascript
-#     full_name = session.get('full_name')
-#     user_name = session.get('user_name')
+@app.route('/update_choice', methods=['POST'])
+def update_choice():
+    
+    full_name = session.get('full_name')
+    user_name = session.get('user_name')
+    name_instance = Name.query.filter_by(full_name=full_name).first()
+    user_instance = User.query.filter_by(user_name=user_name).first()
+    video_url = session.get('url')
+    attribute = session.get('attribute')
 
-#     new_choice = Choices(name=full_name, user=user_name, )
+    new_choice = Choices(name=name_instance, user=user_instance, video_url=video_url, attribute=attribute)
+    db.session.add(new_choice)
+    db.session.commit()
 
-#     return jsonify({'updated choice'})
+    return jsonify({'message': 'Choice updated successfully'})
 
 @app.route('/user-results')
 def user_results():
