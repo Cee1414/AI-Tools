@@ -189,7 +189,7 @@ body {
 }
 
 .user-picture {
-    background-image: url('/static/images/people/person1-resized-user-results.jpg');
+    background-image: url('/static/images/users/0.png');
     background-repeat: no-repeat;
     background-size: cover; /* or contain, depending on your preference */
 }

@@ -33,7 +33,7 @@ async function handleClick(videoID) {
             await sendCurrentVideoData(videoID, updateChoice);
             randomizeVideoObjects();
             updateAllVideos();
-            updateScreenNum();
+            handleScreenNum();
         } catch (error) {
             console.error(error);
         }
@@ -81,19 +81,37 @@ function randomizeVideoObjects() {
     screen1Videos = {video1, video2, video3, video4};
 }
 
-function updateScreenNum() {
+//todo make screen num funcs async
+
+
+//todo get rid of hack to get to user results
+function handleScreenNum() {
 
     
     axios.post('/update_screen_number')
         .then(response => {
-            console.log(response.data.screen_number); // Log updated screen number
-            // Use the session variable in your frontend logic
+            let screenNumber = (response.data.screen_number);
+            if(screenNumber === undefined) {
+                window.location.href = 'http://127.0.0.1:5000/user-results';
+            }
+            console.log(screenNumber); // Log updated screen number
+            // if (screenNumber % 6 === 0) {
+            //     return axios.get('/go_to_results_screen')
+            //         .then(() => {
+            //             console.log('Redirected to results screen');
+            //         })
+            //         .catch(error => {
+            //             console.error('Error redirecting to results screen:', error);
+            //         });
+            // }
         })
         .catch(error => {
             console.error('Error retrieving session variables:', error);
         });
     
 }
+
+
 
 async function sendCurrentVideoData(videoID, callback) {
     try {

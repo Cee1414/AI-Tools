@@ -120,7 +120,7 @@ def index():
         print(form.errors)
     return render_template('index.html', form=form)
 
-@app.route('/screen1')
+@app.route('/screen1',  methods=['GET','POST'])
 def screen1():
     name = session.get('full_name')
     user_name = session.get('user_name')
@@ -129,11 +129,20 @@ def screen1():
 
     return render_template('screen1.html', name=name, vidSet=vidSet, user_name=user_name)
 
-@app.route('/update_screen_number', methods=['POST'])
+@app.route('/update_screen_number', methods=['GET', 'POST'])
 def update_screen_number():
     session['screen_number'] += 1
     screen_number = session.get('screen_number')
+    if session['screen_number'] % 6 == 0:
+        return redirect(url_for('user_results'))
+
+    ##try to put goto stuff in this funct
     return jsonify({'screen_number': screen_number})
+
+@app.route('/go_to_results_screen', methods=['GET'])
+def go_to_results_screen():
+
+    return redirect(url_for('user_results'))
 
 @app.route('/update_current_video', methods=['POST'])
 def update_current_video():
