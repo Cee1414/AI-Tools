@@ -10,8 +10,11 @@ function updateVideoImage(videoID, videoUrl) {
 function updateChoice() {
     axios.post('/update_choice')
         .then(response => {
-            console.log(); // Log updated screen number
-            // Use the session variable in your frontend logic
+            console.log(response.data.message); // Log message
+            console.log(response.data.full_name); // Log full name
+            console.log(response.data.user_name); // Log user name
+            console.log(response.data.video_url); // Log video URL
+            console.log(response.data.attribute); // Log attribute
         })
         .catch(error => {
             console.error('Error retrieving session variables:', error);
@@ -95,7 +98,7 @@ function sendCurrentVideoData(videoID) {
     axios.post('/update_current_video', currentVideo)
     .then(response => {
         
-        console.log(response.data.url);
+        // console.log(response.data.url);
     })
     .catch(error => {
         console.error(error);
@@ -112,6 +115,8 @@ let video4 = allVideos[randomVideoNum()];
 
 let screen1Videos = {video1, video2, video3, video4};
 
+//todo fixed duplicate attribut and refactor as functions
+ 
 while ((video2.url == video1.url) || (video2.url == video3.url) || (video2.url == video4.url)){
     video2 = allVideos[randomVideoNum()];
     }

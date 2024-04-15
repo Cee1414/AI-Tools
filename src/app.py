@@ -158,7 +158,13 @@ def update_choice():
     db.session.add(new_choice)
     db.session.commit()
 
-    return jsonify({'message': 'Choice updated successfully'})
+    return jsonify({
+        'message': 'Choice updated successfully',
+        'full_name': full_name,
+        'user_name': user_name,
+        'video_url': video_url,
+        'attribute': attribute
+    })
 
 @app.route('/user-results')
 def user_results():
