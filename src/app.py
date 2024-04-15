@@ -141,8 +141,13 @@ def update_current_video():
     session['url'] = data.get('url')
     session['attribute'] = data.get('attribute')
     url = session.get('url')
+    attribute = session.get('attribute')
 
-    return jsonify({'url': url})
+    return jsonify({
+        'message': 'Current Video updated successfully',
+        'url': url,
+        'attribute': attribute
+    })
     
 @app.route('/update_choice', methods=['POST'])
 def update_choice():

@@ -23,17 +23,20 @@ function updateChoice() {
 }
 
 
-function handleClick(videoID) {
+async function handleClick(videoID) {
     let vidNum = 'vid' + videoID.slice(5); //gets id of thumbnail
 
     
     let elementToPress = document.getElementById(videoID);
-    elementToPress.addEventListener('click', function() {
-        sendCurrentVideoData(videoID);
-        updateChoice();
-        randomizeVideoObjects();
-        updateAllVideos();
-        updateScreenNum();
+    elementToPress.addEventListener('click', async function() {
+        try {
+            await sendCurrentVideoData(videoID, updateChoice);
+            randomizeVideoObjects();
+            updateAllVideos();
+            updateScreenNum();
+        } catch (error) {
+            console.error(error);
+        }
         
     });
     
@@ -92,17 +95,18 @@ function updateScreenNum() {
     
 }
 
-function sendCurrentVideoData(videoID) {
-    let currentVideo = screen1Videos[videoID];
-    
-    axios.post('/update_current_video', currentVideo)
-    .then(response => {
-        
-        // console.log(response.data.url);
-    })
-    .catch(error => {
+async function sendCurrentVideoData(videoID, callback) {
+    try {
+        let currentVideo = screen1Videos[videoID];
+        let response = await axios.post('/update_current_video', currentVideo);
+        console.log(response.data.message); // Log message
+        console.log(response.data.url); // Log full name
+        console.log(response.data.attribute); // Log user name
+        callback();
+    } catch (error) {
         console.error(error);
-    });
+        throw error; // Re-throw the error for handling elsewhere if needed
+    }
     
 }
 
