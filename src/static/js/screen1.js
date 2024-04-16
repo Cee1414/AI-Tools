@@ -128,6 +128,24 @@ async function sendCurrentVideoData(videoID, callback) {
     
 }
 
+function updateUserImage(userImageID, userNum) {
+        
+    let element = document.getElementById(userImageID);
+    element.style.backgroundImage = 'url("/static/images/users/' + userNum + '.png")';
+
+}
+
+  async function handleUserImage(callback) {
+    try {
+      const response = await axios.get('/check_user_image');
+      const user_id = response.data.user_id;
+      console.log(user_id, user_id); // Log updated user ID
+      callback('user-image', user_id);
+  } catch (error) {
+      console.error('Error retrieving session variables:', error);
+  }
+  }
+
 //initialize objects
 
 let video1 = allVideos[randomVideoNum()];
@@ -157,6 +175,10 @@ updateVideoImage('vid1', video1.url);
 updateVideoImage('vid2', video2.url);
 updateVideoImage('vid3', video3.url);
 updateVideoImage('vid4', video4.url);
+
+//initialize user image
+
+handleUserImage(updateUserImage);
 
 //handle interactions
 

@@ -48,18 +48,16 @@ function updateParagraphsPercentage(id, percentage) {
 
 }
 
-//todo make array of userImages
-
-async function handleUserImage(callback) {
-  try {
-    const response = await axios.get('/check_user_image');
-    const user_id = response.data.user_id;
-    console.log(user_id, user_id); // Log updated user ID
-    callback('user-image', user_id);
-} catch (error) {
-    console.error('Error retrieving session variables:', error);
-}
-}
+  async function handleUserImage(callback) {
+    try {
+      const response = await axios.get('/check_user_image');
+      const user_id = response.data.user_id;
+      console.log(user_id, user_id); // Log updated user ID
+      callback('user-image', user_id);
+  } catch (error) {
+      console.error('Error retrieving session variables:', error);
+  }
+  }
 
   //TODO: Make next button go to next set of videos
 
