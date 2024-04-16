@@ -41,9 +41,30 @@ function updateParagraphsPercentage(id, percentage) {
     });
   }
 
+  function updateUserImage(userImageID, userNum) {
+        
+    let element = document.getElementById(userImageID);
+    element.style.backgroundImage = 'url("/static/images/users/' + userNum + '.png")';
+
+}
+
+//todo make array of userImages
+
+async function handleUserImage(callback) {
+  try {
+    const response = await axios.get('/check_user_image');
+    const user_id = response.data.user_id;
+    console.log(user_id, user_id); // Log updated user ID
+    callback('user-image', user_id);
+} catch (error) {
+    console.error('Error retrieving session variables:', error);
+}
+}
+
   //TODO: Make next button go to next set of videos
 
 
+ handleUserImage(updateUserImage);
  nextButton();
  updateScrollbar("scrollbar-container-one", 28)
  updateScrollbar("scrollbar-container-two", 50)

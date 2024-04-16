@@ -14,7 +14,7 @@
         <div class="left">
             
             <p>Results for user 1:</p>
-            <div class="user-picture"></div>
+            <div id= 'user-image'class="user-picture"></div>
 
 
         </div>
@@ -118,7 +118,8 @@
         
     </div>
 
-    <script src="{{url_for('static',filename='js/user-results.js')}}"></script>
+    <script type="module" src="{{url_for('static',filename='js/user-results.js')}}"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     
 
 </body>

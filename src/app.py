@@ -109,7 +109,7 @@ def index():
         db.session.commit()
         session['full_name'] = name
         #initialize user and screen number
-        session['user_name'] = 'bob'
+        session['user_id'] = 1
         session['screen_number'] = 0
         ##debug
         for name in Name.query.all():
@@ -134,6 +134,8 @@ def update_screen_number():
     session['screen_number'] += 1
     screen_number = session.get('screen_number')
     if session['screen_number'] % 5 == 0:
+        
+
         return redirect(url_for('user_results'))
 
     ##try to put goto stuff in this funct
@@ -179,6 +181,11 @@ def update_choice():
         'video_url': video_url,
         'attribute': attribute
     })
+
+@app.route('/check_user_image')
+def check_user_image():
+    user_id = session.get('user_id')
+    return jsonify ({'user_id': user_id})
 
 @app.route('/user-results')
 def user_results():
