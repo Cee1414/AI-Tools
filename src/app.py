@@ -187,6 +187,13 @@ def check_user_image():
     user_id = session.get('user_id')
     return jsonify ({'user_id': user_id})
 
+@app.route('/increment_user_id', methods=['POST'])
+def increment_user_id():
+    session['user_id'] += 1
+    user_id = session.get('user_id')
+    
+    return jsonify({'user_id': user_id})
+
 @app.route('/user-results')
 def user_results():
     return render_template('user-results.html')
