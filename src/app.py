@@ -110,7 +110,7 @@ def index():
         session['full_name'] = name
         #initialize user and screen number
         session['user_name'] = 'bob'
-        session['screen_number'] = 1
+        session['screen_number'] = 0
         ##debug
         for name in Name.query.all():
             print (name.full_name)
@@ -133,7 +133,7 @@ def screen1():
 def update_screen_number():
     session['screen_number'] += 1
     screen_number = session.get('screen_number')
-    if session['screen_number'] % 6 == 0:
+    if session['screen_number'] % 5 == 0:
         return redirect(url_for('user_results'))
 
     ##try to put goto stuff in this funct
