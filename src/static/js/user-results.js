@@ -87,7 +87,6 @@ function checkScreenNum () {
   }
   }
 
-  //TODO: Make next button go to next set of videos
 
 
  handleUserImage(updateUserImage);

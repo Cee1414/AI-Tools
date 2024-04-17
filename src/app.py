@@ -196,6 +196,15 @@ def increment_user_id():
     
     return jsonify({'user_id': user_id})
 
+@app.route('/decrement_user_id', methods=['POST'])
+def decrement_user_id():
+    session['user_id'] -= 1
+    if session['user_id'] == 0:
+        session['user_id'] = 1
+    user_id = session.get('user_id')
+    
+    return jsonify({'user_id': user_id})
+
 @app.route('/user-results')
 def user_results():
     return render_template('user-results.html')

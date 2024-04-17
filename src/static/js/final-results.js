@@ -53,10 +53,47 @@ function translateScrollbarContainerX(id, translateX) {
       console.error('Error retrieving session variables:', error);
   }
   }
-   
+
+  function updateUserIDIncrement () {
+    axios.post('/increment_user_id')
+    .then(response => {
+        let user_id = (response.data.user_id);
+        console.log('user id:', user_id); 
+    })
+    .catch(error => {
+        console.error('Error retrieving user id:', error);
+    });
+  }
+
+  function updateUserIDDecrement () {
+    axios.post('/decrement_user_id')
+    .then(response => {
+        let user_id = (response.data.user_id);
+        console.log('user id:', user_id); 
+    })
+    .catch(error => {
+        console.error('Error retrieving user id:', error);
+    });
+  }
 
 
-   handleUserImage(updateUserImage); 
+  function nextButton() {
+    document.getElementById("next-button").addEventListener("click", function() {
+    updateUserIDIncrement();
+    window.location.reload();
+    });
+  }
+  
+  function prevButton() {
+    document.getElementById("prev-button").addEventListener("click", function() {
+    updateUserIDDecrement();
+    window.location.reload();
+    });
+  }
+
+   handleUserImage(updateUserImage);
+   nextButton();
+   prevButton(); 
    exitButton();
     
    updateScrollbar("your-results-scrollbar-container-one", 36)
