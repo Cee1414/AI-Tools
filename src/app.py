@@ -16,7 +16,7 @@ app.config["WTF_CSRF_ENABLED"] = False
 secret_key = app.config['SECRET_KEY']
 
 # Enable the Debug Toolbar
-app.debug = True
+app.debug = False
 
 toolbar = DebugToolbarExtension(app)
 
