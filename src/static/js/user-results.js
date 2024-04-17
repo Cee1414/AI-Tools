@@ -34,21 +34,21 @@ function updateParagraphsPercentage(id, percentage) {
 
   //TODO FIX UPDATEUSERID
 
-  // function updateUserID {
-  //   axios.post('/increment_user_id')
-  //   .then(response => {
-  //       let user_id = (response.data.user_id);
-  //       console.log(user_id); 
-  //   })
-  //   .catch(error => {
-  //       console.error('Error retrieving user id:', error);
-  //   });
-  // }
+  function updateUserID () {
+    axios.post('/increment_user_id')
+    .then(response => {
+        let user_id = (response.data.user_id);
+        console.log('user id:', user_id); 
+    })
+    .catch(error => {
+        console.error('Error retrieving user id:', error);
+    });
+  }
 
   function nextButton() {
     document.getElementById("next").addEventListener("click", function() {
-
-    window.location.href = "/screen1";
+    updateUserID();
+    checkScreenNum();
     });
   }
 
@@ -57,6 +57,23 @@ function updateParagraphsPercentage(id, percentage) {
     let element = document.getElementById(userImageID);
     element.style.backgroundImage = 'url("/static/images/users/' + userNum + '.png")';
 
+}
+
+function checkScreenNum () {
+  axios.get('/check_screen_number')
+        .then(response => {
+            let screenNumber = (response.data.screen_number);
+            if(screenNumber === 25) {
+                window.location.href = 'http://127.0.0.1:5000/final-results';
+            }
+            else {
+              window.location.href = "/screen1";
+            }
+            console.log(screenNumber); 
+        })
+        .catch(error => {
+            console.error('Error retrieving session variables:', error);
+        });
 }
 
   async function handleUserImage(callback) {

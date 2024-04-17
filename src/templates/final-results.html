@@ -104,7 +104,7 @@
                 </div>
         </div>
         <div class="mid">
-            <div class="user-picture"></div>
+            <div id="user-image" class="user-picture"></div>
             <p class="user-name">user 1</p>
             <div class="buttons-container">
                 <div class="button-column">
@@ -219,8 +219,9 @@
         </div>
 
     </div>    
-
-    <script src="{{url_for('static',filename='js/final-results.js')}}"></script>   
+    
+    <script type="module" src="{{url_for('static',filename='js/final-results.js')}}"></script>   
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
 
 </body>
 </html>

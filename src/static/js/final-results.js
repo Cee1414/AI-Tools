@@ -35,8 +35,29 @@ function translateScrollbarContainerX(id, translateX) {
       window.location.href = "/";
       });
     }
+
+    function updateUserImage(userImageID, userNum) {
+        
+      let element = document.getElementById(userImageID);
+      element.style.backgroundImage = 'url("/static/images/users/' + userNum + '.png")';
+  
+  }
+
+  async function handleUserImage(callback) {
+    try {
+      const response = await axios.get('/check_user_image');
+      const user_id = response.data.user_id;
+      console.log(user_id, user_id); // Log updated user ID
+      callback('user-image', user_id);
+  } catch (error) {
+      console.error('Error retrieving session variables:', error);
+  }
+  }
    
-  exitButton();
+
+
+   handleUserImage(updateUserImage); 
+   exitButton();
     
    updateScrollbar("your-results-scrollbar-container-one", 36)
    updateScrollbar("your-results-scrollbar-container-two", 77)

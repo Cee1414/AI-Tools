@@ -16,7 +16,7 @@ app.config["WTF_CSRF_ENABLED"] = False
 secret_key = app.config['SECRET_KEY']
 
 # Enable the Debug Toolbar
-app.debug = False
+app.debug = True
 
 toolbar = DebugToolbarExtension(app)
 
@@ -182,9 +182,16 @@ def check_user_image():
     user_id = session.get('user_id')
     return jsonify ({'user_id': user_id})
 
+@app.route('/check_screen_number')
+def check_screen_number():
+    screen_number = session.get('screen_number')
+    return jsonify ({'screen_number': screen_number})
+
 @app.route('/increment_user_id', methods=['POST'])
 def increment_user_id():
     session['user_id'] += 1
+    if session['user_id'] == 6:
+        session['user_id'] = 1
     user_id = session.get('user_id')
     
     return jsonify({'user_id': user_id})
