@@ -189,7 +189,6 @@ body {
 }
 
 #user-image {
-    background-image: url('/static/images/users/0.png');
     background-repeat: no-repeat;
     background-size: cover; /* or contain, depending on your preference */
 }

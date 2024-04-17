@@ -133,12 +133,7 @@ def screen1():
 def update_screen_number():
     session['screen_number'] += 1
     screen_number = session.get('screen_number')
-    if session['screen_number'] % 5 == 0:
-        
 
-        return redirect(url_for('user_results'))
-
-    ##try to put goto stuff in this funct
     return jsonify({'screen_number': screen_number})
 
 @app.route('/go_to_results_screen', methods=['GET'])
@@ -164,9 +159,9 @@ def update_current_video():
 def update_choice():
     
     full_name = session.get('full_name')
-    user_name = session.get('user_name')
+    user_id = session.get('user_id')
     name_instance = Name.query.filter_by(full_name=full_name).first()
-    user_instance = User.query.filter_by(user_name=user_name).first()
+    user_instance = User.query.filter_by(user_id=user_id).first()
     video_url = session.get('url')
     attribute = session.get('attribute')
 
@@ -177,7 +172,7 @@ def update_choice():
     return jsonify({
         'message': 'Choice updated successfully',
         'full_name': full_name,
-        'user_name': user_name,
+        'user_id': user_id,
         'video_url': video_url,
         'attribute': attribute
     })

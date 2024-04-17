@@ -91,7 +91,7 @@ function handleScreenNum() {
     axios.post('/update_screen_number')
         .then(response => {
             let screenNumber = (response.data.screen_number);
-            if(screenNumber === undefined) {
+            if(screenNumber % 5 === 0) {
                 window.location.href = 'http://127.0.0.1:5000/user-results';
             }
             console.log(screenNumber); // Log updated screen number
