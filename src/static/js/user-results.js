@@ -61,7 +61,7 @@ function checkScreenNum () {
   axios.get('/check_screen_number')
         .then(response => {
             let screenNumber = (response.data.screen_number);
-            if(screenNumber === 25) {
+            if(screenNumber === 50) {
                 window.location.href = '/final-results';
             }
             else {
