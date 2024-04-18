@@ -88,8 +88,8 @@ function checkScreenNum () {
   async function updateUserTextNum () {
     let userText = document.getElementById("user-text");
     try {
-      let response = await axios.get('/check_user_image');
-      let number = response.data.user_id; // Assuming the number is in the response data
+      let response = await axios.get('/check_user_name');
+      let number = response.data.user_name; // Assuming the number is in the response data
   
       userText.textContent += number +':';
     } catch (error) {

@@ -152,16 +152,35 @@ function updateUserImage(userImageID, userNum) {
 
 }
 
-  async function handleUserImage(callback) {
+async function handleUserImage(callback) {
+try {
+    const response = await axios.get('/check_user_image');
+    const user_id = response.data.user_id;
+    console.log(user_id, user_id); // Log updated user ID
+    callback('user-image', user_id);
+} catch (error) {
+    console.error('Error retrieving session variables:', error);
+}
+}
+
+function updateUserText(userTextID, userName) {
+        
+    let element = document.getElementById(userTextID);
+    element.textContent = userName;
+
+}
+
+async function handleUserText(callback) {
     try {
-      const response = await axios.get('/check_user_image');
-      const user_id = response.data.user_id;
-      console.log(user_id, user_id); // Log updated user ID
-      callback('user-image', user_id);
-  } catch (error) {
-      console.error('Error retrieving session variables:', error);
-  }
-  }
+        const response = await axios.get('/check_user_name');
+        const user_name = response.data.user_name;
+        console.log(user_name, user_name); // Log updated user ID
+        callback('user-image-text', user_name);
+    } catch (error) {
+        console.error('Error retrieving session variables:', error);
+    }
+    }
+
 
 //initialize objects
 
@@ -195,6 +214,7 @@ updateAllVideos();
 //initialize user image
 
 handleUserImage(updateUserImage);
+handleUserText(updateUserText);
 
 //handle interactions
 

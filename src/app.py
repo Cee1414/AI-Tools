@@ -95,11 +95,11 @@ def clear_session():
 def index():
     #insert users
 
-    insert_users('bob')
-    insert_users('susan')
-    insert_users('matthew')
-    insert_users('pamela')
-    insert_users('jasper')
+    insert_users('Patrick')
+    insert_users('Cara')
+    insert_users('Nate')
+    insert_users('Ruth')
+    insert_users('Jeremy')
 
     #process form data
     form = nameForm()
@@ -184,6 +184,12 @@ def update_choice():
 def check_user_image():
     user_id = session.get('user_id')
     return jsonify ({'user_id': user_id})
+
+@app.route('/check_user_name')
+def check_user_name():
+    user_id = session.get('user_id')
+    user = User.query.get(user_id)
+    return jsonify ({'user_name': user.user_name if user else None})
 
 @app.route('/check_screen_number')
 def check_screen_number():
