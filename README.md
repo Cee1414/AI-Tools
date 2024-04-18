@@ -35,7 +35,7 @@ create an `/instance/config.py` file in the root of the project folder and enter
 SECRET_KEY = 'placeholder-key-update-text'
 ```
 
-## run
+## Run The Application
 
 ```python
 python3 src/app.py
