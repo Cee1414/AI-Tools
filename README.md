@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 ## Configuration
 To configure the application, set the following environment variable:
-creat `/instance/config.py` file and enter this text
+create an `/instance/config.py` file in the root of the project foler and enter this text
 ```python
 SECRET_KEY = 'placeholder-key-update-text'
 ```
