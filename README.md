@@ -36,6 +36,7 @@ SECRET_KEY = 'placeholder-key-update-text'
 ```
 
 ## Run The Application
+Type this into the terminal:
 
 ```python
 python3 src/app.py
