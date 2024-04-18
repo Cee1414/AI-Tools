@@ -114,17 +114,6 @@ function checkScreenNum () {
             console.error('Error retrieving session variables:', error);
         });
   }
-  
-
-  //  function updatePlayerScrollBar () {
-
-
-  //   updateScrollbar("scrollbar-container-one", attribute_percentages_dict.educational)
-  //   updateScrollbar("scrollbar-container-two", attribute_percentages_dict.educational)
-  //   updateScrollbar("scrollbar-container-three", attribute_percentages_dict.educational)
-  //   updateScrollbar("scrollbar-container-four", attribute_percentages_dict.educational)
-  //   updateScrollbar("scrollbar-container-five", attribute_percentages_dict.educational)
-  // }
 
  updatePlayerScrollBar();
  updateUserTextNum();

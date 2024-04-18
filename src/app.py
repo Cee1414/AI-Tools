@@ -70,7 +70,7 @@ with app.app_context():
 def validateName(form, field):
     name = field.data.split()
     if len(name) < 2:
-        raise ValidationError('Please enter your full name (first name and last initial).')
+        raise ValidationError('Please enter your full name (first name and last name).')
 
 class lowerCaseStringField(StringField):
     def process_formdata(self, valuelist):
@@ -78,7 +78,7 @@ class lowerCaseStringField(StringField):
             self.data = valuelist[0].lower()
 
 class nameForm(FlaskForm):
-    name = lowerCaseStringField('Input First Name And Last Initial:', validators=[DataRequired(), validateName])
+    name = lowerCaseStringField('Input First Name And Last Name:', validators=[DataRequired(), validateName])
     submit = SubmitField('Play')
 
 # Clear session on visiting index page 
