@@ -104,17 +104,30 @@ function translateScrollbarContainerX(id, translateX) {
     }
   }
 
+  function updatePlayerScrollBar () {
+    axios.get('/query_sql')
+        .then(response => {
+            let attribute_percentages_dict = (response.data.attribute_percentages_dict);
+            
+            updateScrollbar("your-results-scrollbar-container-one", attribute_percentages_dict['news'] || 0)
+            updateScrollbar("your-results-scrollbar-container-two", attribute_percentages_dict['educational'] || 0)
+            updateScrollbar("your-results-scrollbar-container-three", attribute_percentages_dict['sports'] || 0)
+            updateScrollbar("your-results-scrollbar-container-four", attribute_percentages_dict['gaming'] || 0)
+            updateScrollbar("your-results-scrollbar-container-five", attribute_percentages_dict['fashionbeauty'] || 0)
+            console.log(attribute_percentages_dict); 
+        })
+        .catch(error => {
+            console.error('Error retrieving session variables:', error);
+        });
+  }
+
    updateUserTextNum();
    handleUserImage(updateUserImage);
    nextButton();
    prevButton(); 
    exitButton();
     
-   updateScrollbar("your-results-scrollbar-container-one", 36)
-   updateScrollbar("your-results-scrollbar-container-two", 77)
-   updateScrollbar("your-results-scrollbar-container-three", 14)
-   updateScrollbar("your-results-scrollbar-container-four", 59)
-   updateScrollbar("your-results-scrollbar-container-five", 92)
+   updatePlayerScrollBar();
 
    updateScrollbar("other's-results-scrollbar-container-one", 27)
    updateScrollbar("other's-results-scrollbar-container-two", 59)
