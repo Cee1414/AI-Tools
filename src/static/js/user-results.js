@@ -32,8 +32,6 @@ function updateParagraphsPercentage(id, percentage) {
 
   }
 
-  //TODO FIX UPDATEUSERID
-
   function updateUserID () {
     axios.post('/increment_user_id')
     .then(response => {
@@ -100,15 +98,40 @@ function checkScreenNum () {
     }
   }
 
+  function updatePlayerScrollBar () {
+    axios.get('/query_sql')
+        .then(response => {
+            let attribute_percentages_dict = (response.data.attribute_percentages_dict);
+            
+            updateScrollbar("scrollbar-container-one", attribute_percentages_dict['news'] || 0)
+            updateScrollbar("scrollbar-container-two", attribute_percentages_dict['educational'] || 0)
+            updateScrollbar("scrollbar-container-three", attribute_percentages_dict['sports'] || 0)
+            updateScrollbar("scrollbar-container-four", attribute_percentages_dict['gaming'] || 0)
+            updateScrollbar("scrollbar-container-five", attribute_percentages_dict['fashionbeauty'] || 0)
+            console.log(attribute_percentages_dict); 
+        })
+        .catch(error => {
+            console.error('Error retrieving session variables:', error);
+        });
+  }
 
+  //  function updatePlayerScrollBar () {
+
+
+  //   updateScrollbar("scrollbar-container-one", attribute_percentages_dict.educational)
+  //   updateScrollbar("scrollbar-container-two", attribute_percentages_dict.educational)
+  //   updateScrollbar("scrollbar-container-three", attribute_percentages_dict.educational)
+  //   updateScrollbar("scrollbar-container-four", attribute_percentages_dict.educational)
+  //   updateScrollbar("scrollbar-container-five", attribute_percentages_dict.educational)
+  // }
+
+ updatePlayerScrollBar();
  updateUserTextNum();
  handleUserImage(updateUserImage);
  nextButton();
- updateScrollbar("scrollbar-container-one", 28)
- updateScrollbar("scrollbar-container-two", 50)
- updateScrollbar("scrollbar-container-three", 84)
- updateScrollbar("scrollbar-container-four", 66)
- updateScrollbar("scrollbar-container-five", 12)
+
+updatePlayerScrollBar();
+
 
   
   

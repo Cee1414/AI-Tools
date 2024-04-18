@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 from flask_wtf import CSRFProtect
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
@@ -16,7 +17,7 @@ app.config["WTF_CSRF_ENABLED"] = False
 secret_key = app.config['SECRET_KEY']
 
 # Enable the Debug Toolbar
-app.debug = False
+app.debug = True
 
 toolbar = DebugToolbarExtension(app)
 
@@ -204,6 +205,34 @@ def decrement_user_id():
     user_id = session.get('user_id')
     
     return jsonify({'user_id': user_id})
+
+@app.route('/query_sql', methods=['get'])
+def query_sql():
+    full_name = session['full_name']
+    user_id = session['user_id']
+    name = db.session.query(Name).filter(Name.full_name == full_name).first()
+    name_id = name.name_id
+
+    total_choices = db.session.query(func.count(Choices.choice_id)).\
+    filter(Choices.name_id == name_id).\
+    filter(Choices.user_id == user_id).\
+    scalar()
+
+    attribute_counts = db.session.query(Choices.attribute, func.count(Choices.choice_id)).\
+    filter(Choices.name_id == name_id).\
+    filter(Choices.user_id == user_id).\
+    group_by(Choices.attribute).all()
+
+    attribute_counts_dict = [{'attribute': attr, 'count': count} for attr, count in attribute_counts] ## for debug logging
+
+    attribute_percentages = [(attr, count / total_choices * 100) for attr, count in attribute_counts]
+    
+    attribute_percentages_dict = {}
+    for attr, count in attribute_counts:
+        percentage = count / total_choices * 100
+        attribute_percentages_dict[attr] = percentage
+
+    return jsonify({'attribute_percentages_dict': attribute_percentages_dict})
 
 @app.route('/user-results')
 def user_results():
