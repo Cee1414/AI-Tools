@@ -201,7 +201,7 @@ def increment_user_id():
 def decrement_user_id():
     session['user_id'] -= 1
     if session['user_id'] == 0:
-        session['user_id'] = 1
+        session['user_id'] = 5
     user_id = session.get('user_id')
     
     return jsonify({'user_id': user_id})
