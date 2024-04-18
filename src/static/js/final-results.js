@@ -121,6 +121,23 @@ function translateScrollbarContainerX(id, translateX) {
         });
   }
 
+  function updateCombinedAveragesScrollBar () {
+    axios.get('/query_sql_combined')
+        .then(response => {
+            let average_attribute_percentages = (response.data.average_attribute_percentages);
+            
+            updateScrollbar("other's-results-scrollbar-container-one", average_attribute_percentages['news'] || 0)
+            updateScrollbar("other's-results-scrollbar-container-two", average_attribute_percentages['educational'] || 0)
+            updateScrollbar("other's-results-scrollbar-container-three", average_attribute_percentages['sports'] || 0)
+            updateScrollbar("other's-results-scrollbar-container-four", average_attribute_percentages['gaming'] || 0)
+            updateScrollbar("other's-results-scrollbar-container-five", average_attribute_percentages['fashionbeauty'] || 0)
+            console.log(average_attribute_percentages); 
+        })
+        .catch(error => {
+            console.error('Error retrieving session variables:', error);
+        });
+  }
+
    updateUserTextNum();
    handleUserImage(updateUserImage);
    nextButton();
@@ -129,11 +146,6 @@ function translateScrollbarContainerX(id, translateX) {
     
    updatePlayerScrollBar();
 
-   updateScrollbar("other's-results-scrollbar-container-one", 27)
-   updateScrollbar("other's-results-scrollbar-container-two", 59)
-   updateScrollbar("other's-results-scrollbar-container-three", 12)
-   updateScrollbar("other's-results-scrollbar-container-four", 86)
-   updateScrollbar("other's-results-scrollbar-container-five", 43)
-  
+   updateCombinedAveragesScrollBar();
     
     

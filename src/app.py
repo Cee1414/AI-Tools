@@ -17,7 +17,7 @@ app.config["WTF_CSRF_ENABLED"] = False
 secret_key = app.config['SECRET_KEY']
 
 # Enable the Debug Toolbar
-app.debug = True
+app.debug = False
 
 toolbar = DebugToolbarExtension(app)
 
@@ -230,9 +230,28 @@ def query_sql():
     attribute_percentages_dict = {}
     for attr, count in attribute_counts:
         percentage = count / total_choices * 100
+        percentage = round(percentage, 2)
         attribute_percentages_dict[attr] = percentage
 
     return jsonify({'attribute_percentages_dict': attribute_percentages_dict})
+
+@app.route('/query_sql_combined', methods=['get'])
+def query_sql_combined():
+    user_id = session['user_id']
+
+    attribute_counts = db.session.query(Choices.attribute, func.count(Choices.choice_id)).\
+    filter(Choices.user_id == user_id).\
+    group_by(Choices.attribute).all()
+
+    total_choices = sum(count for _, count in attribute_counts)
+
+    average_attribute_percentages = {}
+    for attr, count in attribute_counts:
+        percentage = count / total_choices * 100
+        percentage = round(percentage, 2)
+        average_attribute_percentages[attr] = percentage
+
+    return jsonify({'average_attribute_percentages':average_attribute_percentages})
 
 @app.route('/user-results')
 def user_results():
