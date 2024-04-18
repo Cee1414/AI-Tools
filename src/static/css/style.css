@@ -91,6 +91,8 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 25px;
+    font-family: 'Jura', sans-serif;
 }
 
 input[type="submit"] {
@@ -112,6 +114,11 @@ input[type="submit"] {
 input[type="submit"]:hover {
     opacity: 0.7;
     border-color: #333;
+}
+
+select.form-control {
+    font-size: 24px; /* Adjust the font size as desired */
+    font-family: 'Jura', sans-serif;
 }
 
 .error-messages {

@@ -33,6 +33,7 @@ class Name(db.Model):
     
     name_id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(100), nullable=False)
+    grade = db.Column(db.Integer, nullable=True)
     choices = db.relationship('Choices', back_populates='name')
 
 class User(db.Model):
@@ -78,7 +79,7 @@ class lowerCaseStringField(StringField):
             self.data = valuelist[0].lower()
 
 class nameForm(FlaskForm):
-    name = lowerCaseStringField('Input First Name And Last Name:', validators=[DataRequired(), validateName])
+    name = lowerCaseStringField('Input First And Last Name:', validators=[DataRequired(), validateName])
     submit = SubmitField('Play')
 
 # Clear session on visiting index page 
@@ -104,8 +105,9 @@ def index():
     form = nameForm()
     if form.validate_on_submit():
         name = form.name.data
+        grade = request.form.get('grade')  # Get the selected grade
 
-        new_name = Name(full_name=name)
+        new_name = Name(full_name=name, grade=grade)  # Create a new Name instance
         db.session.add(new_name)
         db.session.commit()
         session['full_name'] = name
@@ -119,7 +121,7 @@ def index():
         return redirect(url_for('screen1'))
     else:
         print(form.errors)
-    return render_template('index.html', form=form)
+    return render_template('index.html', form=form, options=[6,7,8])
 
 @app.route('/screen1',  methods=['GET','POST'])
 def screen1():

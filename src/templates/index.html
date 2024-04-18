@@ -14,29 +14,41 @@
     <div class="instructions-container">
         <div class="top">
             <p>
-            Instructions
+            Welcome To VidMatch!
             </p>
         </div>
         <div class="mid">
-            Click the video that you think the user will like the most!
-
-            Your choices will be compared against other users.
+            Congratulations! You have just been hired as an AI content recommender for our new site, VidMatch.<br>
+            <br>
+            We have lots of new users, but all we know about them is their name and what they look like.<br>
+            Pick which videos you think each character will like the most!<br>
+            <br>
+            At the end, your choices will be compared with the average.
         </div>
         
         <div class="bottom">
             <div class="form-container">
-        <form method="POST">
-            {{ form.hidden_tag() }}
-            <div class="form-group">
-                {{ form.name.label }}
-                {{ form.name(class="form-control") }}
-                <div class="error-messages">
-                    {% for error in form.name.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %} 
-                </div>
-            {{ form.submit(class="btn btn-primary") }}
-        </form>
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        {{ form.name.label }}
+                        {{ form.name(class="form-control") }}
+                        <div class="error-messages">
+                            {% for error in form.name.errors %}
+                                <div class="error-message">{{ error }}</div>
+                            {% endfor %} 
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">Select Grade:</label>
+                            <select name="grade" id="grade" class="form-control" style="margin-bottom: 10px;">
+                                <option value="6">Grade 6</option>
+                                <option value="7">Grade 7</option>
+                                <option value="8">Grade 8</option>
+                            </select>
+                        </div>
+                    {{ form.submit(class="btn btn-primary") }}
+                </form>
+                
             </div>
         </div>
 
