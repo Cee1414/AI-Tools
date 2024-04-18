@@ -1,11 +1,23 @@
 import allVideos from './videos.js'
 
 function updateVideoImage(videoID, videoUrl) {
-        
         let element = document.getElementById(videoID);
         element.style.backgroundImage = 'url("' + videoUrl + '")';
-
 }
+
+function updateVideoTitle(videoID, newText) {
+    let textElement = document.getElementById(videoID + '-text'); // Assuming the text element's ID is videoID followed by '-text'
+    textElement.textContent = newText;
+}
+
+function extractTitle(filePath) {
+    // Remove the file extension (".jpg" in this case)
+    const fileNameWithoutExtension = filePath.replace(/\.[^.]+$/, '');
+    // Extract the game name from the remaining path
+    const title = fileNameWithoutExtension.split('/').pop();
+    return title;
+}
+
 
 function updateChoice() {
     axios.post('/update_choice')
@@ -54,6 +66,11 @@ function updateAllVideos() {
     updateVideoImage('vid2', video2.url);
     updateVideoImage('vid3', video3.url);
     updateVideoImage('vid4', video4.url);
+
+    updateVideoTitle('vid1', extractTitle(video1.url));
+    updateVideoTitle('vid2', extractTitle(video2.url));
+    updateVideoTitle('vid3', extractTitle(video3.url));
+    updateVideoTitle('vid4', extractTitle(video4.url));
 
 }
 
@@ -173,10 +190,7 @@ while ((video3.url == video1.url) || (video3.url == video2.url) || (video3.url =
 
 //initialize videos
 
-updateVideoImage('vid1', video1.url);
-updateVideoImage('vid2', video2.url);
-updateVideoImage('vid3', video3.url);
-updateVideoImage('vid4', video4.url);
+updateAllVideos();
 
 //initialize user image
 
