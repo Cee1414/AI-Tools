@@ -78,22 +78,22 @@ function randomizeVideoObjects() {
     //todo check if attribute is already taken or if same as prev video
 
     //todo refactor while loop
-    let prevUrl = video1.url
+    let prevUrl = video1.attribute
     video1 = allVideos[randomVideoNum()];
-    while (video1.url == prevUrl || (video1.url == video2.url) || (video1.url == video3.url) || (video1.url == video4.url)){
+    while (video1.attribute == prevUrl){
         video1 = allVideos[randomVideoNum()];
     }
-    prevUrl = video2.url
-    while (video2.url == prevUrl || (video2.url == video1.url) || (video2.url == video3.url) || (video2.url == video4.url)){
-    video2 = allVideos[randomVideoNum()];
+    prevUrl = video2.attribute
+    while (video2.attribute == prevUrl || (video2.attribute == video1.attribute)){
+        video2 = allVideos[randomVideoNum()];
     }
-    prevUrl = video3.url
-    while (video3.url == prevUrl || (video3.url == video1.url) || (video3.url == video2.url) || (video3.url == video4.url)){
-    video3 = allVideos[randomVideoNum()];
+    prevUrl = video3.attribute
+    while (video3.attribute == prevUrl || (video3.attribute == video1.attribute) || (video3.attribute == video2.attribute)){
+        video3 = allVideos[randomVideoNum()];
     }
-    prevUrl = video4.url
-    while (video4.url == prevUrl || (video4.url == video1.url) || (video4.url == video3.url) || (video4.url == video2.url)){
-    video4 = allVideos[randomVideoNum()];
+    prevUrl = video4.attribute
+    while (video4.attribute == prevUrl || (video4.attribute == video1.attribute) || (video4.attribute == video3.attribute) || (video4.attribute == video2.attribute)){
+        video4 = allVideos[randomVideoNum()];
     }
     screen1Videos = {video1, video2, video3, video4};
 }
@@ -191,20 +191,7 @@ let video4 = allVideos[randomVideoNum()];
 
 let screen1Videos = {video1, video2, video3, video4};
 
-//todo fixed duplicate attribut and refactor as functions
- 
-while ((video2.url == video1.url) || (video2.url == video3.url) || (video2.url == video4.url)){
-    video2 = allVideos[randomVideoNum()];
-    }
-
-while ((video3.url == video1.url) || (video3.url == video2.url) || (video3.url == video4.url)){
-    video3 = allVideos[randomVideoNum()];
-}
-
-while ((video3.url == video1.url) || (video3.url == video2.url) || (video3.url == video4.url)){
-    video3 = allVideos[randomVideoNum()];
-}    
-
+randomizeVideoObjects();
 
 
 //initialize videos
