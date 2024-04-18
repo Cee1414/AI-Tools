@@ -114,6 +114,7 @@ function checkScreenNum () {
             console.error('Error retrieving session variables:', error);
         });
   }
+  
 
   //  function updatePlayerScrollBar () {
 

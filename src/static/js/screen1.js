@@ -84,7 +84,7 @@ function randomizeVideoObjects() {
 //todo make screen num funcs async
 
 
-//todo get rid of hack to get to user results
+
 function handleScreenNum() {
 
     
@@ -168,6 +168,8 @@ while ((video3.url == video1.url) || (video3.url == video2.url) || (video3.url =
 while ((video3.url == video1.url) || (video3.url == video2.url) || (video3.url == video4.url)){
     video3 = allVideos[randomVideoNum()];
 }    
+
+
 
 //initialize videos
 
