@@ -39,7 +39,7 @@ function translateScrollbarContainerX(id, translateX) {
     function updateUserImage(userImageID, userNum) {
         
       let element = document.getElementById(userImageID);
-      element.style.backgroundImage = 'url("/static/images/users/' + userNum + '.png")';
+      element.style.backgroundImage = 'url("/static/images/users/' + userNum + '.jpg")';
   
   }
 
