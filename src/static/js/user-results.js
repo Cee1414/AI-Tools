@@ -62,7 +62,7 @@ function checkScreenNum () {
         .then(response => {
             let screenNumber = (response.data.screen_number);
             if(screenNumber === 25) {
-                window.location.href = 'http://127.0.0.1:5000/final-results';
+                window.location.href = '/final-results';
             }
             else {
               window.location.href = "/screen1";
