@@ -22,7 +22,7 @@ cd VidMatch
 ## Virtual Environment Setup (Optional but Recommended)
 Create a virtual environment:
 ```bash
-python3 -m venv venv
+python3 -m venv .venv
 ```
 
 Activate the virtual environment:
