@@ -1,5 +1,4 @@
-# VidMatch Project Setup
-
+# VidMatch Project Description
 ## Description:
 In this game, students play the role of
 an AI content recommender to decide
@@ -11,6 +10,8 @@ of the average and are prompted to
 consider what assumptions led to those
 results, and how a recommendation system may become biased
 against certain demographics of people.
+
+# VidMatch Project Setup
 
 ## Project Directory Navigation
 Navigate to the project directory:
