@@ -1,5 +1,16 @@
 # VidMatch Project Setup
 
+## Description:
+In this game, students play the role of
+an AI content recommender to decide
+which videos a made-up “character”
+would prefer based only on a portrait
+and a name. At the end, they compare
+their resulting category scores to those
+of the average and are prompted to
+consider what assumptions led to those
+results.
+
 ## Project Directory Navigation
 Navigate to the project directory:
 ```bash
