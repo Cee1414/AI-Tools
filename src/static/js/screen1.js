@@ -75,7 +75,7 @@ function updateAllVideos() {
 }
 
 function randomizeVideoObjects() {
-    //todo check if attribute is already taken or if same as prev video
+    
 
     //todo refactor while loop
     let prevUrl = video1.attribute
