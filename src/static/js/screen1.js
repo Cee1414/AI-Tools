@@ -108,7 +108,7 @@ function handleScreenNum() {
     axios.post('/update_screen_number')
         .then(response => {
             let screenNumber = (response.data.screen_number);
-            if(screenNumber % 10 === 0) {
+            if(screenNumber % 6 === 0) {
                 window.location.href = '/user-results';
             }
             console.log(screenNumber); // Log updated screen number
