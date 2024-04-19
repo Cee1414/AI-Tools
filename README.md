@@ -9,7 +9,8 @@ and a name. At the end, they compare
 their resulting category scores to those
 of the average and are prompted to
 consider what assumptions led to those
-results.
+results, and how a recommendation system may become biased
+against certain demographics of people
 
 ## Project Directory Navigation
 Navigate to the project directory:
