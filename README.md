@@ -1,6 +1,6 @@
 # VidMatch Project Description
 ## Link to website
-c1414.pythonanywhere.com/
+[c1414.pythonanywhere.com/](https://chat.openai.com/c1414.pythonanywhere.com/)
 
 ## Premise
 In this game, students play the role of
