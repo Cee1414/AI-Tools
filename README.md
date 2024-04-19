@@ -1,5 +1,5 @@
 # VidMatch Project Description
-## Description:
+## Premise:
 In this game, students play the role of
 an AI content recommender to decide
 which videos a made-up “character”
