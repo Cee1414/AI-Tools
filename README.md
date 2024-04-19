@@ -32,7 +32,7 @@ Activate the virtual environment:
   ```
 - For Unix or MacOS:
   ```bash
-  source venv/bin/activate
+  source .venv/bin/activate
   ```
 
 ## Install Dependencies
